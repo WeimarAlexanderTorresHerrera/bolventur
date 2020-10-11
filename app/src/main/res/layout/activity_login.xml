@@ -54,6 +54,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/registerCompanyButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="50"
@@ -62,6 +63,7 @@
             android:text="@string/registerCompany"/>
 
         <Button
+            android:id="@+id/registerUserButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="50"
