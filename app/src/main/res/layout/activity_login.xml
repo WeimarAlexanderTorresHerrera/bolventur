@@ -7,11 +7,12 @@
     tools:context=".ui.activities.LoginActivity">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="@dimen/text_lg"
+        android:textSize="40sp"
+        android:layout_gravity="center"
         android:layout_marginTop="100dp"
         android:gravity="center" />
 
@@ -20,9 +21,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/email"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="140dp"
         android:layout_marginHorizontal="@dimen/space_xxl"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/passwordEditText"
@@ -31,6 +33,42 @@
         android:hint="@string/password"
         android:layout_marginTop="@dimen/space_lg"
         android:layout_marginHorizontal="@dimen/space_xxl"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/space_lg"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:text="@string/login" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="150dp"
+        android:layout_marginHorizontal="@dimen/space_xxl"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_marginEnd="@dimen/space_md"
+            android:text="@string/registerCompany"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_marginStart="@dimen/space_md"
+            android:text="@string/registerUser"/>
+
+    </LinearLayout>
 
 </LinearLayout>
