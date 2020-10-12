@@ -28,6 +28,8 @@ public class MockRepository implements RepositoryImpl {
         return new Base<>(Constants.ERROR_LOGIN, null);
     }
 
+    // TODO create user Paola
+
     @Override
     public LiveData<Base<User>> loginEmailPassword(String email, String password) {
         MutableLiveData<Base<User>> results = new MutableLiveData<>();

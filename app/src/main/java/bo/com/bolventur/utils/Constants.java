@@ -7,4 +7,6 @@ public class Constants {
     public static final int ERROR_EMPTY_EMAIL_VALUE = 2002;
     public static final int ERROR_EMPTY_PASSWORD_VALUE = 2003;
     public static final int ERROR_INVALID_EMAIL = 2004;
+
+    public static final String KEY_USER = "user";
 }

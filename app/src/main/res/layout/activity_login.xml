@@ -23,7 +23,7 @@
         android:hint="@string/email"
         android:layout_marginTop="140dp"
         android:layout_marginHorizontal="@dimen/space_xxl"
-        android:inputType="textEmailAddress"
+        android:inputType="textEmailAddress|textNoSuggestions"
         android:importantForAutofill="no" />
 
     <EditText
@@ -33,16 +33,16 @@
         android:hint="@string/password"
         android:layout_marginTop="@dimen/space_lg"
         android:layout_marginHorizontal="@dimen/space_xxl"
-        android:inputType="textPassword"
+        android:inputType="textPassword|textNoSuggestions"
         android:importantForAutofill="no" />
 
     <Button
-        android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/space_lg"
         style="@style/Widget.AppCompat.Button.Colored"
+        android:onClick="loginEmailPassword"
         android:text="@string/login" />
 
     <LinearLayout
@@ -54,21 +54,19 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/registerCompanyButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="50"
             style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_marginEnd="@dimen/space_md"
+            android:layout_marginEnd="@dimen/space_xs"
             android:text="@string/registerCompany"/>
 
         <Button
-            android:id="@+id/registerUserButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="50"
             style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_marginStart="@dimen/space_md"
+            android:layout_marginStart="@dimen/space_xs"
             android:text="@string/registerUser"/>
 
     </LinearLayout>
