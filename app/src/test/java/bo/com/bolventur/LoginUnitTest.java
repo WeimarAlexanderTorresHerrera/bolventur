@@ -32,16 +32,20 @@ public class LoginUnitTest {
 
     @Test
     public void loginRegularUser() {
+        String uid = "0000";
         String email = "test@test.com";
         String password = "test";
+        String name = "test";
         LiveData<Base<User>> result = repository.loginEmailPassword(email, password);
 
         assertNotNull(result);
         result.observeForever(base -> {
             assertTrue(base.isSuccessful());
             assertEquals(UserProfile.REGULAR, base.getData().getUserProfile());
+            assertEquals(uid, base.getData().getUid());
             assertEquals(email, base.getData().getEmail());
             assertEquals(password, base.getData().getPassword());
+            assertEquals(name, base.getData().getName());
         });
     }
 
@@ -106,7 +110,7 @@ public class LoginUnitTest {
         assertNotNull(result);
         result.observeForever(base -> {
             assertFalse(base.isSuccessful());
-            assertEquals(Constants.ERROR_EMAIL, base.getErrorCode());
+            assertEquals(Constants.ERROR_INVALID_EMAIL, base.getErrorCode());
         });
     }
 

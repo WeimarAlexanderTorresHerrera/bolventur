@@ -7,17 +7,15 @@ public class User {
     protected String name;
     protected UserProfile userProfile = UserProfile.REGULAR;
 
-    public User(String email, String password) {
+    public User(String uid, String email, String password, String name) {
+        this.uid = uid;
         this.email = email;
         this.password = password;
+        this.name = name;
     }
 
     public String getUid() {
         return uid;
-    }
-
-    public void setUid(String uid) {
-        this.uid = uid;
     }
 
     public String getEmail() {
@@ -30,10 +28,6 @@ public class User {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public UserProfile getUserProfile() {

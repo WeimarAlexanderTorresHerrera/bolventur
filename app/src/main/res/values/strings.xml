@@ -9,7 +9,11 @@
     <string name="registerCompany">Register Company</string>
 
     <!-- Error -->
-    <string name="error_empty_values">Enter email and password</string>
+    <string name="error_login">User not found</string>
+    <string name="error_empty_login_values">Enter email and password</string>
+    <string name="error_empty_email_value">Enter email</string>
+    <string name="error_empty_password_value">Enter password</string>
+    <string name="error_invalid_email">Enter a valid email</string>
     <string name="error_unknown">Unknown error</string>
 
 </resources>
