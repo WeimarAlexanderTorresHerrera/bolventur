@@ -1,4 +1,4 @@
 package bo.com.bolventur.ui.fragments;
 
-public class MainMenuFragments {
+public class MainMenuFragment {
 }
