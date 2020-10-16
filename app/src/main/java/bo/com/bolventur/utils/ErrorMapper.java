@@ -16,6 +16,10 @@ public class ErrorMapper {
             return context.getString(R.string.error_invalid_email);
         } else if (errorCode == Constants.ERROR_LOGIN) {
             return context.getString(R.string.error_login);
+        } else if (errorCode == Constants.ERROR_DONT_MATCH) {
+            return context.getString(R.string.error_do_not_match);
+        } else if (errorCode == Constants.ERROR_EMPTY_REGISTER_VALUES) {
+            return context.getString(R.string.error_empty_register_values);
         } else {
             return context.getString(R.string.error_unknown);
         }
