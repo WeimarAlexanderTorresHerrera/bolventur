@@ -16,4 +16,11 @@
     <string name="error_invalid_email">Enter a valid email</string>
     <string name="error_unknown">Unknown error</string>
 
+    <!-- Menu buttons -->
+    <string name="botton1">Cultural Events</string>
+    <string name="botton2">Musical Events</string>
+    <string name="botton3">Tourism</string>
+    <string name="botton4">Favorites</string>
+
+
 </resources>
