@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="40sp"
+        android:textSize="@dimen/text_xl"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/space_xl"
         android:gravity="center" />
