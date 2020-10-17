@@ -7,12 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bo.com.bolventur.model.Base;
+import bo.com.bolventur.model.Event;
 import bo.com.bolventur.model.users.User;
 import bo.com.bolventur.utils.Constants;
 import bo.com.bolventur.utils.Validations;
 
 public class MockRepository implements RepositoryImpl {
     private List<User> mockedUsers = new ArrayList<>();
+    private List<Event> mockedEvent = new ArrayList<>();
 
     public MockRepository() {
         User test = new User("0000", "test@test.com", "test", "test");
