@@ -17,4 +17,5 @@
     <string name="error_do_not_match">Las contraseñas no coinciden</string>
     <string name="error_empty_register_values">Por favor, llene todos los campos</string>
     <string name="error_unknown">Error desconocido</string>
+    <string name="success_message">Registrado exitosamente</string>
 </resources>

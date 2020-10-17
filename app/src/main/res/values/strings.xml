@@ -21,4 +21,6 @@
     <string name="error_empty_register_values">Please fill in all the fields</string>
     <string name="error_unknown">Unknown error</string>
 
+    <string name="success_message">Successfully registered</string>
+
 </resources>
