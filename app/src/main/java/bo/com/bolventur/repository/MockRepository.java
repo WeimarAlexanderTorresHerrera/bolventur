@@ -72,6 +72,7 @@ public class MockRepository implements RepositoryImpl {
         if (password.equals(confirmPsswd)) {
             User user = new User("0000", email, password, name);
             results.postValue(new Base(user));
+            mockedUsers.add(user);
             return results;
         }
 
