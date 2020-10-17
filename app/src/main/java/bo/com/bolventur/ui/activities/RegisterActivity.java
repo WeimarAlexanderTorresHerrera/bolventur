@@ -30,8 +30,6 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText passwordEditText;
     private EditText confPasswordEditText;
 
-    private Button registerButton;
-
     private RegisterViewModel registerViewModel;
 
     @Override

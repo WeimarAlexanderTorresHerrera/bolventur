@@ -54,6 +54,7 @@
         android:paddingLeft="@dimen/space_md"
         android:layout_marginTop="@dimen/space_xxl"
         style="@style/Widget.AppCompat.Button.Colored"
+        android:onClick="registerUser"
         android:text="@string/signUp"/>
 
 </LinearLayout>
