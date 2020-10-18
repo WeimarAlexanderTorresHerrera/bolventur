@@ -1,91 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.activities.MainMenuActivity">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="40sp"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="25dp"
         android:gravity="center" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/grey_300"
-        android:layout_marginTop="70dp"
+        android:background="@color/white"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
         android:paddingBottom="60dp">
 
         <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
-            android:id="@+id/buttonGroup_pickupDropoffBoth"
-            android:layout_width="match_parent"
+            android:id="@+id/buttonGroup_rounded"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_margin="4dp"
-            android:elevation="3dp"
-            android:background="@color/white"
-            app:position="0"
-            app:radius="20dp"
+            android:background="@color/grey_300"
+            app:radius="10dp"
+            app:selectedButtonRadius="10dp"
+            app:selectedBackground="@color/white"
+            app:selectedBorderWidth="2sp"
+            app:selectedBorderColor="@color/grey_400"
+            app:draggable="true"
             app:ripple="true"
-            app:rippleColor="@color/green_800"
-            app:selectedBackground="@color/blue_600">
+            app:rippleColor="@color/blue_500">
 
             <com.addisonelliott.segmentedbutton.SegmentedButton
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:padding="4dp"
-                android:background="@color/red_100"
-                app:selectedTextColor="@color/white"
-                app:text="@string/botton1"
-                app:textColor="@color/red" />
-
-            <com.addisonelliott.segmentedbutton.SegmentedButton
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:background="@color/green_100"
-                app:selectedTextColor="@color/white"
+                app:selectedTextColor="@color/blue_600"
+                app:text="@string/botton1"
+                app:textColor="@color/gray"
+                app:textSize="15dp"/>
+
+            <com.addisonelliott.segmentedbutton.SegmentedButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                app:selectedTextColor="@color/blue_500"
                 app:text="@string/botton2"
-                app:textColor="@color/black" />
+                app:textColor="@color/grey_500"
+                app:textSize="15dp"/>
 
             <com.addisonelliott.segmentedbutton.SegmentedButton
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:padding="4dp"
-                android:background="@color/blue_100"
-                app:selectedTextColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                app:selectedTextColor="@color/blue_500"
                 app:text="@string/botton3"
-                app:textColor="@color/black" />
+                app:textColor="@color/grey_500"
+                app:textSize="15dp"/>
 
             <com.addisonelliott.segmentedbutton.SegmentedButton
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:padding="4dp"
-                android:background="@color/red_100"
-                app:selectedTextColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                app:selectedTextColor="@color/blue_500"
                 app:text="@string/botton4"
-                app:textColor="@color/red" />
+                app:textColor="@color/grey_500"
+                app:textSize="15dp"/>
 
         </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/space_sm">
+            android:layout_marginTop="@dimen/space_md">
         </androidx.recyclerview.widget.RecyclerView>
 
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>
