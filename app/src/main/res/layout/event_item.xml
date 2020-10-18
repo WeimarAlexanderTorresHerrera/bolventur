@@ -8,7 +8,7 @@
     android:padding="@dimen/space_xxs">
 
     <ImageView
-        android:id="@+id/coverImageView"
+        android:id="@+id/photoImageView"
         android:layout_width="@dimen/space_xl"
         android:layout_height="@dimen/space_xl"
         android:scaleType="centerInside"
@@ -23,7 +23,7 @@
         android:gravity="center">
 
         <TextView
-            android:id="@+id/nameTextView"
+            android:id="@+id/titleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
@@ -32,11 +32,31 @@
             tools:text="Mon Laferte - La gira de Norma" />
 
         <TextView
-            android:id="@+id/addressTextView"
+            android:id="@+id/locationTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_md"
             tools:text="Teatro al Aire Libre" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/dateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="10/18/2020"/>
+
+            <TextView
+                android:id="@+id/priceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                tools:text="Bs. 100"/>
+
+        </RelativeLayout>
+
     </LinearLayout>
 
 </LinearLayout>

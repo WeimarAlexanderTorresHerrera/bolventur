@@ -53,18 +53,17 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    //Retrofit, httpClient --> API
+    // Retrofit, httpClient --> API
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
-    //Gson --> serialize/deserialize
+    // Gson --> serialize/deserialize
     implementation 'com.google.code.gson:gson:2.8.6'
 
-    //SegmentedButton
+    // SegmentedButton
     implementation 'com.github.addisonElliott:SegmentedButton:3.1.9'
 
-    //Carousel
-    implementation 'com.synnapps:carouselview:0.1.5'
+    // Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
 
 }

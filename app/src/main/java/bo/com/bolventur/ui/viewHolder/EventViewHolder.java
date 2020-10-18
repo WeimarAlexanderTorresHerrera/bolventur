@@ -11,15 +11,19 @@ import bo.com.bolventur.R;
 
 public class EventViewHolder extends RecyclerView.ViewHolder {
 
-    public ImageView coverImageView;
-    public TextView nameTextView;
-    public TextView addressTextView;
+    public ImageView photoImageView;
+    public TextView titleTextView;
+    public TextView locationTextView;
+    public TextView dateTextView;
+    public TextView priceTextView;
 
     public EventViewHolder(@NonNull View itemView) {
         super(itemView);
 
-        coverImageView = itemView.findViewById(R.id.coverImageView);
-        nameTextView = itemView.findViewById(R.id.nameTextView);
-        addressTextView = itemView.findViewById(R.id.addressTextView);
+        photoImageView = itemView.findViewById(R.id.photoImageView);
+        titleTextView = itemView.findViewById(R.id.titleTextView);
+        locationTextView = itemView.findViewById(R.id.locationTextView);
+        dateTextView = itemView.findViewById(R.id.dateTextView);
+        priceTextView = itemView.findViewById(R.id.priceTextView);
     }
 }
