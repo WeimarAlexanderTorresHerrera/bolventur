@@ -5,30 +5,27 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import bo.com.bolventur.R;
-import bo.com.bolventur.viewModel.MainMenuTabViewModel;
+import bo.com.bolventur.viewModel.MainMenuTab2ViewModel;
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MainMenuTabFragment extends Fragment {
+public class MainMenuBtn2TabFragment extends Fragment {
 
-    //private static final String LOG = PlaceholderFragment.class.getSimpleName();
+    private static final String LOG = MainMenuBtn2TabFragment.class.getSimpleName();
     private Context context;
 
 
-    private MainMenuTabViewModel mainMenuTabViewModel;
+    private MainMenuTab2ViewModel viewModel;
 
-    public static MainMenuTabFragment newInstance() {
-        MainMenuTabFragment fragment = new MainMenuTabFragment();
+    public static MainMenuBtn2TabFragment newInstance() {
+        MainMenuBtn2TabFragment fragment = new MainMenuBtn2TabFragment();
         return fragment;
     }
 
@@ -42,7 +39,7 @@ public class MainMenuTabFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        mainMenuTabViewModel = new ViewModelProvider(this).get(MainMenuTabViewModel.class);
+        viewModel = new ViewModelProvider(this).get(MainMenuTab2ViewModel.class);
 
 
     }
@@ -51,7 +48,18 @@ public class MainMenuTabFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_main_menu_tab, container, false);
+        View root = inflater.inflate(R.layout.fragment_mainmenu_btn2tab, container, false);
+        initViews(root);
+        initEvents();
         return root;
     }
+
+    public void initViews(View view){
+        //Buscar los ID dento del view.
+    }
+
+    public void initEvents(){
+
+    }
+    
 }
