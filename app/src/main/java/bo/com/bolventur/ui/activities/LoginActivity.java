@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 
 import bo.com.bolventur.R;
+import bo.com.bolventur.utils.Constants;
 import bo.com.bolventur.utils.ErrorMapper;
 import bo.com.bolventur.viewModel.LoginViewModel;
 
@@ -53,12 +54,11 @@ public class LoginActivity extends AppCompatActivity {
         loginViewModel.loginEmailPassword(email, password).observe(this, userBase -> {
             if (userBase.isSuccessful()) {
                 Log.e(LOG, "User " + new Gson().toJson(userBase.getData()));
-                // TODO implement intent
-                /*
-                Intent intent = new Intent(context, );
+
+                Intent intent = new Intent(context, MainMenuActivity.class);
                 intent.putExtra(Constants.KEY_USER, new Gson().toJson(userBase.getData()));
                 startActivity(intent);
-                 */
+
             } else {
                 Toast.makeText(context, ErrorMapper.getError(context, userBase.getErrorCode()), Toast.LENGTH_SHORT).show();
             }

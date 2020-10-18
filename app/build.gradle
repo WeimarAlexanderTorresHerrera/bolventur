@@ -61,4 +61,8 @@ dependencies {
     //SegmentedButton
     implementation 'com.github.addisonElliott:SegmentedButton:3.1.9'
 
+    //Carousel
+    implementation 'com.synnapps:carouselview:0.1.5'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 }
