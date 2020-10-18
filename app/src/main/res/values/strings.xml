@@ -22,5 +22,10 @@
     <string name="botton3">Tourism</string>
     <string name="botton4">Favorites</string>
 
+    <string name="title_activity_main_menu_taab">MainMenuTaabActivity</string>
+    <string name="tab_text_1">Cultural Events</string>
+    <string name="tab_text_2">Musical Events</string>
+    <string name="title_activity_main_menu_tab">MainMenuTabActivity</string>
+
 
 </resources>
