@@ -13,7 +13,6 @@
             android:name=".ui.activities.MainMenuTabActivity"
             android:label="@string/title_activity_main_menu_tab"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".ui.activities.MainMenuActivity" />
         <activity android:name=".ui.activities.EventActivity" />
         <activity android:name=".ui.activities.RegisterActivity" />
         <activity

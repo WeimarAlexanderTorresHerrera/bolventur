@@ -26,7 +26,6 @@ import bo.com.bolventur.model.Event;
 import bo.com.bolventur.ui.adapters.EventAdapter;
 import bo.com.bolventur.utils.ErrorMapper;
 import bo.com.bolventur.viewModel.MainMenuTab2ViewModel;
-import bo.com.bolventur.viewModel.MainMenuViewModel;
 
 /**
  * A placeholder fragment containing a simple view.

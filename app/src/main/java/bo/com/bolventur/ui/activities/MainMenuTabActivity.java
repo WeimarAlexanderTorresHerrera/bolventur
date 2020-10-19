@@ -15,7 +15,7 @@ import android.view.View;
 
 import bo.com.bolventur.R;
 import bo.com.bolventur.ui.adapters.MainMenuTabPagerAdapter;
-import bo.com.bolventur.viewModel.MainMenuViewModel;
+import bo.com.bolventur.viewModel.MainMenuTab2ViewModel;
 
 public class MainMenuTabActivity extends AppCompatActivity {
 
@@ -26,14 +26,14 @@ public class MainMenuTabActivity extends AppCompatActivity {
     private TabLayout tabs;
     private FloatingActionButton fab;
 
-    private MainMenuViewModel viewModel;
+    private MainMenuTab2ViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu_tab);
-        context =this;
-        viewModel = new ViewModelProvider(this).get(MainMenuViewModel.class);
+        context = this;
+        viewModel = new ViewModelProvider(this).get(MainMenuTab2ViewModel.class);
 
         initViews();
         initEvents();
