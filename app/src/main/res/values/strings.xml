@@ -8,8 +8,6 @@
     <string name="confPassword">Confirm password...</string>
     <string name="login">Login</string>
     <string name="signUp">Sign Up</string>
-    <string name="registerUser">Register</string>
-    <string name="registerCompany">Register Company</string>
 
     <!-- Error -->
     <string name="error_login">User not found</string>
