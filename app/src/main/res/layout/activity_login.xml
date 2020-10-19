@@ -45,30 +45,13 @@
         android:onClick="loginEmailPassword"
         android:text="@string/login" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_marginTop="140dp"
         android:layout_gravity="center"
-        android:layout_marginTop="150dp"
-        android:layout_marginHorizontal="@dimen/space_xxl"
-        android:orientation="horizontal">
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_marginEnd="@dimen/space_xs"
-            android:text="@string/registerCompany"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_marginStart="@dimen/space_xs"
-            android:text="@string/registerUser"/>
-
-    </LinearLayout>
+        android:onClick="register"
+        android:text="@string/signUp"/>
 
 </LinearLayout>

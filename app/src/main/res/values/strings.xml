@@ -5,8 +5,7 @@
     <string name="email">Email...</string>
     <string name="password">Password...</string>
     <string name="login">Login</string>
-    <string name="registerUser">Register User</string>
-    <string name="registerCompany">Register Company</string>
+    <string name="signUp">Sign Up</string>
 
     <!-- Error -->
     <string name="error_login">User not found</string>
