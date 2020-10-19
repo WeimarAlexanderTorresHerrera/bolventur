@@ -9,4 +9,6 @@ public interface RepositoryImpl {
 
     LiveData<Base<User>> loginEmailPassword(String email, String password);
 
+    LiveData<Base<User>> register(String email, String password, String name, String confirmPsswd);
+
 }

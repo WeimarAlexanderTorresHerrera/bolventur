@@ -8,5 +8,8 @@ public class Constants {
     public static final int ERROR_EMPTY_PASSWORD_VALUE = 2003;
     public static final int ERROR_INVALID_EMAIL = 2004;
 
+    public static final int ERROR_DONT_MATCH = 2005;
+    public static final int ERROR_EMPTY_REGISTER_VALUES = 2006;
+
     public static final String KEY_USER = "user";
 }

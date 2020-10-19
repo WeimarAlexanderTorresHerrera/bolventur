@@ -17,13 +17,23 @@
         android:gravity="center" />
 
     <EditText
+        android:id="@+id/usernameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/username"
+        android:layout_marginTop="@dimen/space_xl"
+        android:layout_marginHorizontal="@dimen/space_md"
+        android:inputType="textEmailAddress|textNoSuggestions"
+        android:importantForAutofill="no" />
+
+    <EditText
         android:id="@+id/emailEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/email"
-        android:layout_marginTop="@dimen/space_xxl"
+        android:layout_marginTop="@dimen/space_xs"
         android:layout_marginHorizontal="@dimen/space_md"
-        android:inputType="textEmailAddress|textNoSuggestions"
+        android:inputType="textPassword|textNoSuggestions"
         android:importantForAutofill="no" />
 
     <EditText
@@ -33,28 +43,29 @@
         android:hint="@string/password"
         android:layout_marginTop="@dimen/space_xs"
         android:layout_marginHorizontal="@dimen/space_md"
+        android:inputType="textEmailAddress|textNoSuggestions"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/confPasswordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/confPassword"
+        android:layout_marginTop="@dimen/space_xs"
+        android:layout_marginHorizontal="@dimen/space_md"
         android:inputType="textPassword|textNoSuggestions"
         android:importantForAutofill="no" />
 
     <Button
+        android:id="@+id/registerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/space_xs"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:onClick="loginEmailPassword"
-        android:text="@string/login" />
-
-    <Button
-        android:id="@+id/signUpButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_gravity="center"
-        android:onClick="register"
         android:paddingRight="@dimen/space_md"
         android:paddingLeft="@dimen/space_md"
-        android:layout_marginTop="@dimen/space_xxl"
-        android:text="@string/signUp"/>
+        android:layout_marginTop="@dimen/space_xl"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:text="@string/registerUser"
+        android:onClick="register"/>
 
 </LinearLayout>

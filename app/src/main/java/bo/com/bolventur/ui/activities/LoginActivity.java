@@ -66,10 +66,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void register(View view) {
-        // TODO implement intent
-        /*
-        Intent intent = new Intent(context, );
-        startActivity(intent);
-         */
+      Intent intent = new Intent(context, RegisterActivity.class);
+      startActivity(intent);
     }
 }
