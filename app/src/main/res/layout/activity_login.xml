@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activities.LoginActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/text_xl"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/space_xl"
+        android:gravity="center" />
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/email"
+        android:layout_marginTop="@dimen/space_xxl"
+        android:layout_marginHorizontal="@dimen/space_md"
+        android:inputType="textEmailAddress|textNoSuggestions"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/password"
+        android:layout_marginTop="@dimen/space_xs"
+        android:layout_marginHorizontal="@dimen/space_md"
+        android:inputType="textPassword|textNoSuggestions"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/space_xs"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:onClick="loginEmailPassword"
+        android:text="@string/login" />
+
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_gravity="center"
+        android:onClick="register"
+        android:paddingRight="@dimen/space_md"
+        android:paddingLeft="@dimen/space_md"
+        android:layout_marginTop="@dimen/space_xxl"
+        android:text="@string/signUp"/>
+
+</LinearLayout>
