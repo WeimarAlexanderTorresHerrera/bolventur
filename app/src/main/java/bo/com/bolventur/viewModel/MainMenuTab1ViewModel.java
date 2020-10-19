@@ -26,5 +26,4 @@ public class MainMenuTab1ViewModel extends AndroidViewModel {
         return repository.getEvents(category);
     }
 
-
 }
