@@ -18,4 +18,9 @@ public class Repository implements RepositoryImpl {
     public LiveData<Base<List<Event>>> getEvents(String category) {
         return null;
     }
+
+    @Override
+    public LiveData<Base<User>> register(String email, String password, String name, String confirmPsswd) {
+        return null;
+    }
 }

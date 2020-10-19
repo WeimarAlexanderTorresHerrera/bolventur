@@ -71,4 +71,28 @@ public class MockRepository implements RepositoryImpl {
         results.postValue(new Base<>(eventList));
         return results;
     }
+
+    @Override
+    public LiveData<Base<User>> register(String email, String password, String name, String confirmPsswd) {
+        MutableLiveData<Base<User>> results = new MutableLiveData<>();
+
+        if (Validations.isEmpty(email) || Validations.isEmpty(password) || Validations.isEmpty(name) || Validations.isEmpty(confirmPsswd)) {
+            results.postValue(new Base(Constants.ERROR_EMPTY_REGISTER_VALUES, null));
+            return results;
+        }
+
+        if (!Validations.isEmail(email)) {
+            results.postValue(new Base(Constants.ERROR_INVALID_EMAIL, null));
+            return results;
+        }
+
+        if (password.equals(confirmPsswd)) {
+            User user = new User("0000", email, password, name);
+            results.postValue(new Base(user));
+            return results;
+        }
+
+        results.postValue(new Base(Constants.ERROR_DONT_MATCH, null));
+        return results;
+    }
 }

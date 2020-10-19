@@ -14,4 +14,6 @@ public interface RepositoryImpl {
 
     LiveData<Base<List<Event>>> getEvents(String category);
 
+    LiveData<Base<User>> register(String email, String password, String name, String confirmPsswd);
+
 }
