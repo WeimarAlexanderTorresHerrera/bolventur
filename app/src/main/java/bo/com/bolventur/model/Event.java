@@ -9,10 +9,10 @@ public class Event {
     private String category;
     private String photo;
     private String title;
-    private Date date;
+    private long date;
     private String location;
-    private HostUser host;
-    private String getTickets;
+    private String host;
+    //private String getTickets;
     private String description;
     private double price;
 
@@ -48,11 +48,11 @@ public class Event {
         this.title = title;
     }
 
-    public Date getDate() {
+    public long getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(long date) {
         this.date = date;
     }
 
@@ -64,17 +64,17 @@ public class Event {
         this.location = location;
     }
 
-    public HostUser getHost() {
+    public String getHost() {
         return host;
     }
 
-    public String getGetTickets() {
+    /*public String getGetTickets() {
         return getTickets;
     }
 
     public void setGetTickets(String getTickets) {
         this.getTickets = getTickets;
-    }
+    }*/
 
     public String getDescription() {
         return description;

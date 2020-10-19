@@ -19,6 +19,22 @@
     <string name="error_empty_register_values">Please fill in all the fields</string>
     <string name="error_unknown">Unknown error</string>
 
+    <!-- Menu buttons -->
+    <string name="botton1">Cultural Events</string>
+    <string name="botton2">Musical Events</string>
+    <string name="botton3">Tourism</string>
+    <string name="botton4">Favorites</string>
+
+    <string name="tab_text_1">Cultural Events</string>
+    <string name="tab_text_2">Musical Events</string>
+    <string name="tab_text_3">Tourism</string>
+    <string name="tab_text_4">Favorites</string>
+
+    <string name="title_activity_main_menu_taab">MainMenuTaabActivity</string>
+
+    <string name="title_activity_main_menu_tab">MainMenuTabActivity</string>
+
+    <!-- Register -->
     <string name="success_message">Successfully registered</string>
 
 </resources>
