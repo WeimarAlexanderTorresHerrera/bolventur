@@ -39,6 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         registerViewModel = new ViewModelProvider(this).get(RegisterViewModel.class);
 
+        getSupportActionBar().hide();
         initViews();
     }
 
