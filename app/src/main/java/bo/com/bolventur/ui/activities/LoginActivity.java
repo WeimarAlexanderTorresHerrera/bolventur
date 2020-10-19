@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
             if (userBase.isSuccessful()) {
                 Log.e(LOG, "User " + new Gson().toJson(userBase.getData()));
 
-                Intent intent = new Intent(context, MainMenuActivity.class);
+                Intent intent = new Intent(context, MainMenuTabActivity.class);
                 intent.putExtra(Constants.KEY_USER, new Gson().toJson(userBase.getData()));
                 startActivity(intent);
 

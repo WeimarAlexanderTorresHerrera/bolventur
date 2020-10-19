@@ -32,7 +32,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
     @NonNull
     @Override
     public EventViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = layoutInflater.inflate(R.layout.event_item, null);
+        View view = layoutInflater.inflate(R.layout.event_item, parent, false);
         return new EventViewHolder(view);
     }
 
@@ -59,5 +59,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
         cal.setTimeInMillis(time * 1000);
         String date = DateFormat.format("dd-MM-yyyy", cal).toString();
         return date;
+    }
+
+    public void updateEvents(List<Event> events) {
+        this.events = events;
+        notifyDataSetChanged();
     }
 }

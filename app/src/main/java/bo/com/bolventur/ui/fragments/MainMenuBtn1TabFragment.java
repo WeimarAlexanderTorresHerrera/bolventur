@@ -9,8 +9,15 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import bo.com.bolventur.R;
+import bo.com.bolventur.model.Event;
+import bo.com.bolventur.ui.adapters.EventAdapter;
 import bo.com.bolventur.viewModel.MainMenuTab1ViewModel;
 
 /**
@@ -21,6 +28,9 @@ public class MainMenuBtn1TabFragment extends Fragment {
     private static final String LOG = MainMenuBtn1TabFragment.class.getSimpleName();
     private Context context;
 
+    private EventAdapter eventAdapter;
+    private List<Event> events = new ArrayList<>();
+    private RecyclerView eventRecyclerView;
 
     private MainMenuTab1ViewModel viewModel;
 
@@ -55,7 +65,11 @@ public class MainMenuBtn1TabFragment extends Fragment {
     }
 
     public void initViews(View view){
-        //Buscar los ID dento del view.
+        eventRecyclerView = view.findViewById(R.id.culturalEventsRecyclerView);
+
+        eventAdapter = new EventAdapter(events, context);
+        eventRecyclerView.setAdapter(eventAdapter);
+        eventRecyclerView.setLayoutManager(new LinearLayoutManager(context, RecyclerView.VERTICAL, false));
     }
 
     public void initEvents(){
