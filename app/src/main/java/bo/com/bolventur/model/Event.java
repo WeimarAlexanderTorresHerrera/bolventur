@@ -1,19 +1,42 @@
 package bo.com.bolventur.model;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Date;
 
-import bo.com.bolventur.model.users.HostUser;
-
+@Entity(tableName = "event_table")
 public class Event {
+    @PrimaryKey
+    @NotNull
+    @ColumnInfo(name = "uid")
     private String uid;
-    private String category;
+
+    @ColumnInfo(name = "category")
+    private int category;
+
+    @ColumnInfo(name = "photo")
     private String photo;
+
+    @ColumnInfo(name = "title")
     private String title;
+
+    @ColumnInfo(name = "date")
     private long date;
+
+    @ColumnInfo(name = "location")
     private String location;
+
+    @ColumnInfo(name = "host")
     private String host;
-    //private String getTickets;
+
+    @ColumnInfo(name = "description")
     private String description;
+
+    @ColumnInfo(name = "price")
     private double price;
 
     public String getUid() {
@@ -24,11 +47,11 @@ public class Event {
         this.uid = uid;
     }
 
-    public String getCategory() {
+    public int getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(int category) {
         this.category = category;
     }
 
@@ -64,17 +87,13 @@ public class Event {
         this.location = location;
     }
 
+    public void setHost(String host) {
+        this.host = host;
+    }
+
     public String getHost() {
         return host;
     }
-
-    /*public String getGetTickets() {
-        return getTickets;
-    }
-
-    public void setGetTickets(String getTickets) {
-        this.getTickets = getTickets;
-    }*/
 
     public String getDescription() {
         return description;

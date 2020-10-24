@@ -18,12 +18,14 @@ import com.google.gson.Gson;
 import bo.com.bolventur.R;
 import bo.com.bolventur.model.Base;
 import bo.com.bolventur.model.users.User;
+import bo.com.bolventur.utils.Constants;
 import bo.com.bolventur.utils.ErrorMapper;
 import bo.com.bolventur.viewModel.RegisterViewModel;
 
 public class RegisterActivity extends AppCompatActivity {
 
     private Context context;
+    private static final String LOG = RegisterActivity.class.getName();
 
     private EditText usernameEditText;
     private EditText emailEditText;
@@ -60,9 +62,11 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onChanged(Base<User> userBase) {
                 if (userBase.isSuccessful()) {
-                    Toast.makeText(context, context.getString(R.string.success_message), Toast.LENGTH_SHORT).show();
+                    Log.e(LOG, "User " + new Gson().toJson(userBase.getData()));
 
-                    //Intent intent = new Intent(context, )
+                    Intent intent = new Intent(context, MainMenuTabActivity.class);
+                    intent.putExtra(Constants.KEY_USER, new Gson().toJson(userBase.getData()));
+                    startActivity(intent);
                 } else {
                     Toast.makeText(context, ErrorMapper.getError(context, userBase.getErrorCode()), Toast.LENGTH_SHORT).show();
                 }

@@ -24,7 +24,7 @@ public class RegisterUnitTest {
 
     @Before
     public void before() {
-        repository = new MockRepository();
+        repository = new MockRepository(null);
     }
 
     @Rule

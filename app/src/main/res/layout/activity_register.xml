@@ -23,7 +23,6 @@
         android:hint="@string/username"
         android:layout_marginTop="@dimen/space_xl"
         android:layout_marginHorizontal="@dimen/space_md"
-        android:inputType="textEmailAddress|textNoSuggestions"
         android:importantForAutofill="no" />
 
     <EditText
@@ -33,7 +32,7 @@
         android:hint="@string/email"
         android:layout_marginTop="@dimen/space_xs"
         android:layout_marginHorizontal="@dimen/space_md"
-        android:inputType="textPassword|textNoSuggestions"
+        android:inputType="textEmailAddress|textNoSuggestions"
         android:importantForAutofill="no" />
 
     <EditText
@@ -43,7 +42,7 @@
         android:hint="@string/password"
         android:layout_marginTop="@dimen/space_xs"
         android:layout_marginHorizontal="@dimen/space_md"
-        android:inputType="textEmailAddress|textNoSuggestions"
+        android:inputType="textPassword|textNoSuggestions"
         android:importantForAutofill="no" />
 
     <EditText

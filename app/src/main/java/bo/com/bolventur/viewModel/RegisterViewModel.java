@@ -18,7 +18,7 @@ public class RegisterViewModel extends AndroidViewModel {
     public RegisterViewModel(@NonNull Application application) {
         super(application);
 
-        repository = new MockRepository();
+        repository = new MockRepository(application);
     }
 
     public LiveData<Base<User>> register(String email, String password, String name, String confirmPsswd) {
