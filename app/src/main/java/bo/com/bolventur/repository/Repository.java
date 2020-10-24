@@ -3,6 +3,7 @@ package bo.com.bolventur.repository;
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import java.util.List;
 
@@ -26,7 +27,21 @@ public class Repository implements RepositoryImpl {
 
     @Override
     public LiveData<Base<List<Event>>> getEvents(String category) {
-        return ApiRepository.getInstance().getEvents();
+        MutableLiveData<Base<List<Event>>> result = new MutableLiveData<>();
+
+        // local
+        localRepository.getEvents().observeForever(events -> result.postValue(new Base<>(events)));
+
+        // API
+        ApiRepository.getInstance().getEvents().observeForever(events -> {
+            if (events.isSuccessful()) {
+                result.postValue(events);
+
+                localRepository.update(events.getData());
+            }
+        });
+
+        return result;
     }
 
     @Override

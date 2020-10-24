@@ -26,7 +26,9 @@ public class LocalRepository {
     }
 
     public void update(List<Event> events) {
-        eventDao.insert(events);
+        new Thread(() -> {
+            eventDao.insert(events);
+        }).start();
     }
 
 }

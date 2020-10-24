@@ -16,10 +16,7 @@ public interface EventDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(List<Event> events);
 
-    @Query("SELECT * FROM event_table")
+    @Query("SELECT * FROM event_table ORDER BY title ASC")
     LiveData<List<Event>> getAll();
-
-    @Query("DELETE FROM event_table")
-    void deleteAll();
 
 }
