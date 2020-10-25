@@ -70,17 +70,8 @@ public class Repository implements RepositoryImpl {
         MutableLiveData<Base<List<Event>>> result = new MutableLiveData<>();
 
         // local
+
         localRepository.getEventsTab3().observeForever(events -> result.postValue(new Base<>(events)));
-
-
-        // API
-        ApiRepository.getInstance().getEvents().observeForever(events -> {
-            if (events.isSuccessful()) {
-                result.postValue(events);
-
-                localRepository.update(events.getData());
-            }
-        });
 
         return result;
     }
@@ -93,19 +84,8 @@ public class Repository implements RepositoryImpl {
         localRepository.getEventsTab4().observeForever(events -> result.postValue(new Base<>(events)));
 
 
-        // API
-        ApiRepository.getInstance().getEvents().observeForever(events -> {
-            if (events.isSuccessful()) {
-                result.postValue(events);
-
-                localRepository.update(events.getData());
-            }
-        });
-
         return result;
     }
-
-
 
 
 

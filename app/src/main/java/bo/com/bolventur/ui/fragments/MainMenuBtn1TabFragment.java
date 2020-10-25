@@ -92,7 +92,7 @@ public class MainMenuBtn1TabFragment extends Fragment {
                 if (listBase.isSuccessful()) {
                     events = listBase.getData();
                     eventAdapter.updateEvents(events);
-                    Log.e("getEvents", new Gson().toJson(listBase));
+                    Log.e("getCultural", new Gson().toJson(listBase));
                 } else {
                     Toast.makeText(context, ErrorMapper.getError(context, listBase.getErrorCode()),
                             Toast.LENGTH_SHORT).show();
