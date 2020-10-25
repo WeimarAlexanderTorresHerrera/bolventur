@@ -18,7 +18,7 @@ public class Constants {
     public static final int ERROR_NO_CONNECTION = 1001;
 
     //Api
-    public static final String BASE_URL = "https://firebasestorage.googleapis.com/v0/b/bolventur.appspot.com/o/";
-    public static final String RESOURCE_EVENTS ="Events.json";
+    public static final String BASE_URL = "https://firebasestorage.googleapis.com/v0/b/bolvertur.appspot.com/o/";
+    public static final String RESOURCE_EVENTS ="EventsCultural.json";
     public static final String QUERY_PARAM_ALT ="media";
 }

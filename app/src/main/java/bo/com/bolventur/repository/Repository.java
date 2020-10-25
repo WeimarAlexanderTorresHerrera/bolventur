@@ -26,11 +26,12 @@ public class Repository implements RepositoryImpl {
     }
 
     @Override
-    public LiveData<Base<List<Event>>> getEvents(String category) {
+    public LiveData<Base<List<Event>>> getEventsTab1(String category) {
         MutableLiveData<Base<List<Event>>> result = new MutableLiveData<>();
 
         // local
-        localRepository.getEvents().observeForever(events -> result.postValue(new Base<>(events)));
+        localRepository.getEventsTab1().observeForever(events -> result.postValue(new Base<>(events)));
+
 
         // API
         ApiRepository.getInstance().getEvents().observeForever(events -> {
@@ -43,6 +44,70 @@ public class Repository implements RepositoryImpl {
 
         return result;
     }
+
+    @Override
+    public LiveData<Base<List<Event>>> getEventsTab2(String category) {
+        MutableLiveData<Base<List<Event>>> result = new MutableLiveData<>();
+
+        // local
+        localRepository.getEventsTab2().observeForever(events -> result.postValue(new Base<>(events)));
+
+
+        // API
+        ApiRepository.getInstance().getEvents().observeForever(events -> {
+            if (events.isSuccessful()) {
+                result.postValue(events);
+
+                localRepository.update(events.getData());
+            }
+        });
+
+        return result;
+    }
+
+    @Override
+    public LiveData<Base<List<Event>>> getEventsTab3(String category) {
+        MutableLiveData<Base<List<Event>>> result = new MutableLiveData<>();
+
+        // local
+        localRepository.getEventsTab3().observeForever(events -> result.postValue(new Base<>(events)));
+
+
+        // API
+        ApiRepository.getInstance().getEvents().observeForever(events -> {
+            if (events.isSuccessful()) {
+                result.postValue(events);
+
+                localRepository.update(events.getData());
+            }
+        });
+
+        return result;
+    }
+
+    @Override
+    public LiveData<Base<List<Event>>> getEventsTab4(String category) {
+        MutableLiveData<Base<List<Event>>> result = new MutableLiveData<>();
+
+        // local
+        localRepository.getEventsTab4().observeForever(events -> result.postValue(new Base<>(events)));
+
+
+        // API
+        ApiRepository.getInstance().getEvents().observeForever(events -> {
+            if (events.isSuccessful()) {
+                result.postValue(events);
+
+                localRepository.update(events.getData());
+            }
+        });
+
+        return result;
+    }
+
+
+
+
 
     @Override
     public LiveData<Base<User>> register(String email, String password, String name, String confirmPsswd) {

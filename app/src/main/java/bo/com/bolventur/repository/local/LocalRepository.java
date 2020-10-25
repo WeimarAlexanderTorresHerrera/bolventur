@@ -21,8 +21,18 @@ public class LocalRepository {
         eventDao = db.eventDao();
     }
 
-    public LiveData<List<Event>> getEvents() {
-        return eventDao.getAll();
+    public LiveData<List<Event>> getEventsTab1() {
+        return eventDao.getTab1();
+    }
+
+    public LiveData<List<Event>> getEventsTab2() {
+        return eventDao.getTab2();
+    }
+    public LiveData<List<Event>> getEventsTab3() {
+        return eventDao.getTab3();
+    }
+    public LiveData<List<Event>> getEventsTab4() {
+        return eventDao.getTab4();
     }
 
     public void update(List<Event> events) {
