@@ -12,7 +12,8 @@ tools:context=".ui.activities.EventActivity">
         android:id="@+id/imageRelativeLayout"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="@color/black">
 
         <ImageView
             android:id="@+id/coverImageView"
@@ -21,17 +22,17 @@ tools:context=".ui.activities.EventActivity">
             android:src="@drawable/ic_launcher_background" />
 
         <TextView
-            android:id="@+id/myImageViewText"
+            android:id="@+id/eventNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@id/coverImageView"
-            android:layout_alignEnd="@id/coverImageView"
             android:layout_alignBottom="@id/coverImageView"
             android:layout_margin="20dp"
+            android:background="@color/semi_transparent"
             android:gravity="bottom"
             android:text="Event Name"
             android:textColor="#ffffff"
-            android:textSize="@dimen/text_xl"/>
+            android:textSize="30dp"/>
 
     </RelativeLayout>
 
@@ -47,31 +48,59 @@ tools:context=".ui.activities.EventActivity">
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/date"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Date"
-                android:textSize="@dimen/text_lg"/>
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/location"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Location"
-                android:textSize="@dimen/text_lg"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/host"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Host"
-                android:textSize="@dimen/text_lg"/>
+                    <TextView
+                        android:id="@+id/dateTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Date"
+                        android:textSize="@dimen/text_lg"/>
 
+                    <TextView
+                        android:id="@+id/locationTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Location"
+                        android:textSize="@dimen/text_lg"/>
+
+                    <TextView
+                        android:id="@+id/hostTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Host"
+                        android:textSize="@dimen/text_lg"/>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ToggleButton
+                        android:id="@+id/favoriteButton"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentEnd="true"
+                        android:textOn=""
+                        android:textOff=""
+                        android:background="@color/white"/>
+                </RelativeLayout>
+
+            </LinearLayout>
             <TextView
-                android:id="@+id/description"
+                android:id="@+id/descriptionTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -97,7 +126,7 @@ tools:context=".ui.activities.EventActivity">
                     android:textSize="@dimen/text_lg"/>
 
                 <TextView
-                    android:id="@+id/price"
+                    android:id="@+id/priceTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentEnd="true"

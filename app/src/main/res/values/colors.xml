@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#1d3557</color>
     <color name="colorAccent">#457b9d</color>
 
+    <color name="semi_transparent">#8D000000</color>
+
     <!--
     Alert e63946
     White f1faee
