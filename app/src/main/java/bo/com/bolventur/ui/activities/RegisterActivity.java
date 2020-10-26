@@ -39,6 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        context = this;
         registerViewModel = new ViewModelProvider(this).get(RegisterViewModel.class);
 
         getSupportActionBar().hide();

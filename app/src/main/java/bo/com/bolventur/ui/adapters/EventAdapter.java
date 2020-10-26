@@ -17,12 +17,15 @@ import java.util.Locale;
 
 import bo.com.bolventur.R;
 import bo.com.bolventur.model.Event;
+import bo.com.bolventur.ui.callback.EventCallback;
 import bo.com.bolventur.ui.viewHolder.EventViewHolder;
 
 public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
 
     private List<Event> events;
     private LayoutInflater layoutInflater;
+
+    private EventCallback callback;
 
     public EventAdapter(List<Event> events, Context context) {
         this.events = events;
@@ -45,10 +48,17 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
         holder.locationTextView.setText(event.getLocation());
         holder.dateTextView.setText(getDate(event.getDate()));
 
-        System.out.println(event.getTicket().get("price"));
-
         String price = "Bs. " + event.getTicket().get("price");
         holder.priceTextView.setText(price);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (callback != null) {
+                    callback.onEventClicked(event);
+                }
+            }
+        });
     }
 
     @Override
@@ -59,12 +69,16 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
     private String getDate(long time) {
         Calendar cal = Calendar.getInstance(Locale.ENGLISH);
         cal.setTimeInMillis(time * 1000);
-        String date = DateFormat.format("dd-MM-yyyy", cal).toString();
+        String date = DateFormat.format("E, MMM dd yyyy", cal).toString();
         return date;
     }
 
     public void updateEvents(List<Event> events) {
         this.events = events;
         notifyDataSetChanged();
+    }
+
+    public void setCallback(EventCallback callback) {
+        this.callback = callback;
     }
 }

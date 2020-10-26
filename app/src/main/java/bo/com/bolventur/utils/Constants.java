@@ -12,6 +12,7 @@ public class Constants {
     public static final int ERROR_EMPTY_REGISTER_VALUES = 2006;
 
     public static final String KEY_USER = "user";
+    public static final String KEY_EVENT_SELECTED = "event selected";
 
     //Server
     public static final int ERROR_SERVER = 3000;
@@ -21,4 +22,5 @@ public class Constants {
     public static final String BASE_URL = "https://firebasestorage.googleapis.com/v0/b/bolvertur.appspot.com/o/";
     public static final String RESOURCE_EVENTS ="EventsCultural.json";
     public static final String QUERY_PARAM_ALT ="media";
+
 }
