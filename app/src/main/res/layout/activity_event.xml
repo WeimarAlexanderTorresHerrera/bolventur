@@ -12,7 +12,7 @@ tools:context=".ui.activities.EventActivity">
         android:id="@+id/imageRelativeLayout"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="5"
         android:background="@color/black">
 
         <ImageView
@@ -41,7 +41,7 @@ tools:context=".ui.activities.EventActivity">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="4"
         android:padding="20dp">
 
         <LinearLayout
@@ -82,7 +82,8 @@ tools:context=".ui.activities.EventActivity">
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="Host"
-                        android:textSize="@dimen/text_lg"/>
+                        android:textSize="@dimen/text_lg"
+                        android:textStyle="bold"/>
                 </LinearLayout>
 
                 <RelativeLayout
@@ -106,37 +107,38 @@ tools:context=".ui.activities.EventActivity">
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:gravity="center"
                 android:text="Description Description DescriptionDescriptionDescriptionDescription Description"
-                android:textSize="25dp"/>
-
-            <RelativeLayout
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/callButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/Widget.AppCompat.Button.Colored"
-                    android:padding="@dimen/space_sm"
-                    android:layout_marginStart="@dimen/space_xxs"
-                    android:text="Reserve"
-                    android:textSize="@dimen/text_lg"/>
-
-                <TextView
-                    android:id="@+id/priceTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="@dimen/space_xxs"
-                    android:text="Precio"
-                    android:textSize="27dp"/>
-            </RelativeLayout>
+                android:textSize="25dp"
+                android:textStyle="italic"/>
         </LinearLayout>
     </ScrollView>
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/callButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/style_button"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:paddingStart="@dimen/space_sm"
+            android:paddingEnd="@dimen/space_sm"
+            android:layout_marginStart="@dimen/space_xxs"
+            android:text="Reserve"
+            android:textSize="@dimen/text_lg"/>
+
+        <TextView
+            android:id="@+id/priceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/space_xxs"
+            android:text="Precio"
+            android:textSize="27dp"/>
+    </RelativeLayout>
 </LinearLayout>

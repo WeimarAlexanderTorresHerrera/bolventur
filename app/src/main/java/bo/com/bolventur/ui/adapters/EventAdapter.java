@@ -69,7 +69,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
     private String getDate(long time) {
         Calendar cal = Calendar.getInstance(Locale.ENGLISH);
         cal.setTimeInMillis(time * 1000);
-        String date = DateFormat.format("E, MMM dd yyyy", cal).toString();
+        String date = DateFormat.format("E, MMM dd", cal).toString();
         return date;
     }
 
