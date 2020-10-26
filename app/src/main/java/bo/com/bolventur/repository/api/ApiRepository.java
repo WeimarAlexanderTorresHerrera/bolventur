@@ -48,4 +48,25 @@ public class ApiRepository {
         });
         return result;
     }
+
+    public LiveData<Base<List<Event>>> getEventsFav(){
+        MutableLiveData<Base<List<Event>>> result = new MutableLiveData<>();
+        eventsApi.getEventsFav(Constants.QUERY_PARAM_ALT).enqueue(new Callback<List<Event>>() {
+            @Override
+            public void onResponse(Call<List<Event>> call, Response<List<Event>> response) {
+                if(response.isSuccessful()){
+                    result.postValue(new Base<>(response.body()));
+                }else{
+                    result.postValue(new Base<>(Constants.ERROR_SERVER, new Exception(response.message())));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Event>> call, Throwable t) {
+                result.postValue(new Base<>(Constants.ERROR_NO_CONNECTION, new Exception(t)));
+            }
+        });
+        return result;
+    }
+
 }
