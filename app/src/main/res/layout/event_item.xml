@@ -29,6 +29,7 @@
             android:singleLine="true"
             android:textSize="@dimen/text_lg"
             android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
             tools:text="Mon Laferte - La gira de Norma" />
 
         <TextView
