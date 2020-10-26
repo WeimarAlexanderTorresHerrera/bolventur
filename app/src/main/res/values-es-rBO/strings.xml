@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">BOLVENTUR</string>
+
     <string name="username">Nombre de usuario...</string>
     <string name="email">Correo Electrónico...</string>
     <string name="password">Contraseña...</string>
     <string name="confPassword">Confirmar contraseña...</string>
     <string name="login">Iniciar sesión</string>
     <string name="signUp">Regístrate</string>
-    <string name="registerUser">Registrarse</string>
-    <string name="registerCompany">Registrar Compañía</string>
+
     <string name="error_login">Usuario no encontrado</string>
     <string name="error_empty_login_values">Ingrese correo y contraseña</string>
     <string name="error_empty_email_value">Ingrese correo electrónico</string>
@@ -18,4 +18,18 @@
     <string name="error_empty_register_values">Por favor, llene todos los campos</string>
     <string name="error_unknown">Error desconocido</string>
     <string name="success_message">Registrado exitosamente</string>
+
+    <string name="botton1">Eventos Culturales</string>
+    <string name="botton2">Eventos Musicales</string>
+    <string name="botton3">Turismo</string>
+    <string name="botton4">Favoritos</string>
+
+    <string name="tab_text_1">Eventos Culturales</string>
+    <string name="tab_text_2">Eventos Musicales</string>
+    <string name="tab_text_3">Turismo</string>
+    <string name="tab_text_4">Favoritos</string>
+
+    <string name="title_activity_main_menu_taab">MainMenuTaabActivity</string>
+
+    <string name="title_activity_main_menu_tab">MainMenuTabActivity</string>
 </resources>
