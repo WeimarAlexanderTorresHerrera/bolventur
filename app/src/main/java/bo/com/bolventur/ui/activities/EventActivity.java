@@ -95,7 +95,7 @@ public class EventActivity extends AppCompatActivity {
                 hostTextView.setText(event.getHost());
                 descriptionTextView.setText(event.getDescription());
 
-                String price = "Bs " + event.getPrice();
+                String price = "Bs. " + event.getTicket().get("price");
                 priceTextView.setText(price);
 
             } catch (Exception ex) {
