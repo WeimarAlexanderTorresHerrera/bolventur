@@ -48,7 +48,7 @@ public class EventActivity extends AppCompatActivity {
         setContentView(R.layout.activity_event);
 
         //viewModel = new ViewModelProvider(this).get(MainMenuTab1ViewModel.class);
-
+        getSupportActionBar().hide();
         initViews();
         isFavorite();
         getIntentValues();

@@ -38,6 +38,7 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:textSize="@dimen/text_md"
+            android:textStyle="bold"
             tools:text="Teatro al Aire Libre" />
 
         <RelativeLayout
