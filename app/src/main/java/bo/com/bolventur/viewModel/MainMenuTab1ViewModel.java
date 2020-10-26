@@ -27,7 +27,7 @@ public class MainMenuTab1ViewModel extends AndroidViewModel {
     }
 
     public LiveData<Base<List<Event>>> getEvents(String category){
-        return repository.getEvents(category);
+        return repository.getEventsTab1(category);
     }
 
     public MutableLiveData<Event> getEvent() {
