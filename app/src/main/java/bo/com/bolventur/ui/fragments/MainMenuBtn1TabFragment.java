@@ -1,6 +1,7 @@
 package bo.com.bolventur.ui.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,14 +24,17 @@ import java.util.List;
 import bo.com.bolventur.R;
 import bo.com.bolventur.model.Base;
 import bo.com.bolventur.model.Event;
+import bo.com.bolventur.ui.activities.EventActivity;
 import bo.com.bolventur.ui.adapters.EventAdapter;
+import bo.com.bolventur.ui.callback.EventCallback;
+import bo.com.bolventur.utils.Constants;
 import bo.com.bolventur.utils.ErrorMapper;
 import bo.com.bolventur.viewModel.MainMenuTab1ViewModel;
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MainMenuBtn1TabFragment extends Fragment {
+public class MainMenuBtn1TabFragment extends Fragment implements EventCallback{
 
     private static final String LOG = MainMenuBtn1TabFragment.class.getSimpleName();
     private Context context;
@@ -82,7 +86,7 @@ public class MainMenuBtn1TabFragment extends Fragment {
     }
 
     public void initEvents(){
-
+        eventAdapter.setCallback(this);
     }
 
     private void subscribeData() {
@@ -101,4 +105,11 @@ public class MainMenuBtn1TabFragment extends Fragment {
         });
     }
 
+    @Override
+    public void onEventClicked(Event event) {
+        Intent intent = new Intent(context, EventActivity.class);
+        intent.putExtra(Constants.KEY_EVENT_SELECTED, new Gson().toJson(event));
+        startActivity(intent);
+        Log.e("clicked", event.getTitle());
+    }
 }

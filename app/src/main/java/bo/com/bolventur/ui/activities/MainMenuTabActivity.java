@@ -24,7 +24,6 @@ public class MainMenuTabActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private TabLayout tabs;
-    private FloatingActionButton fab;
 
     private MainMenuTab2ViewModel viewModel;
 
@@ -46,16 +45,9 @@ public class MainMenuTabActivity extends AppCompatActivity {
         viewPager.setAdapter(mainMenuTabPagerAdapter);
         tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-        fab = findViewById(R.id.fab);
 
     }
     private void initEvents(){
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
     }
 }

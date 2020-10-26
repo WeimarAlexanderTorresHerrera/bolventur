@@ -5,11 +5,14 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
 import bo.com.bolventur.model.Event;
 import bo.com.bolventur.repository.local.dao.EventDao;
+import bo.com.bolventur.utils.MapConverterTicket;
 
 @Database(entities = {Event.class}, version = 1, exportSchema = false)
+@TypeConverters(MapConverterTicket.class)
 public abstract class BolventurDatabase extends RoomDatabase {
 
     private static volatile  BolventurDatabase INSTANCE;

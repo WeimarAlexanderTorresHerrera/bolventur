@@ -2,11 +2,13 @@ package bo.com.bolventur.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Date;
+import java.util.Map;
 
 @Entity(tableName = "event_table")
 public class Event {
@@ -36,8 +38,9 @@ public class Event {
     @ColumnInfo(name = "description")
     private String description;
 
-    @ColumnInfo(name = "price")
-    private double price;
+    //@Ignore
+    @ColumnInfo(name = "ticket")
+    private Map<String, String> ticket;
 
     public String getUid() {
         return uid;
@@ -103,11 +106,11 @@ public class Event {
         this.description = description;
     }
 
-    public double getPrice() {
-        return price;
+    public Map<String, String> getTicket() {
+        return ticket;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setTicket(Map<String, String> ticket) {
+        this.ticket = ticket;
     }
 }
