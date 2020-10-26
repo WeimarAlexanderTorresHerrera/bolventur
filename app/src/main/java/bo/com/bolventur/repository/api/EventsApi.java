@@ -18,6 +18,9 @@ public interface EventsApi {
     @GET(Constants.RESOURCE_EVENTS)
     Call<List<Event>> getEvents(@Query("alt") String alt);
 
+    @GET(Constants.RESOURCE_EVENTS2)
+    Call<List<Event>> getEventsFav(@Query("alt") String alt);
+
     //Esto no se utiliza
     @GET(Constants.RESOURCE_EVENTS + "/{id}")
     Call<Event> getOnEvent(@Path("id") int id);

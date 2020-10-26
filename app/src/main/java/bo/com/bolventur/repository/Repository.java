@@ -53,15 +53,6 @@ public class Repository implements RepositoryImpl {
         localRepository.getEventsTab2().observeForever(events -> result.postValue(new Base<>(events)));
 
 
-        // API
-        ApiRepository.getInstance().getEvents().observeForever(events -> {
-            if (events.isSuccessful()) {
-                result.postValue(events);
-
-                localRepository.update(events.getData());
-            }
-        });
-
         return result;
     }
 
@@ -82,6 +73,15 @@ public class Repository implements RepositoryImpl {
 
         // local
         localRepository.getEventsTab4().observeForever(events -> result.postValue(new Base<>(events)));
+
+        // API
+        ApiRepository.getInstance().getEventsFav().observeForever(events -> {
+            if (events.isSuccessful()) {
+                result.postValue(events);
+
+                localRepository.update(events.getData());
+            }
+        });
 
 
         return result;

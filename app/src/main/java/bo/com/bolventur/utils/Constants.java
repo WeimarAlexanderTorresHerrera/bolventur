@@ -22,5 +22,7 @@ public class Constants {
     public static final String BASE_URL = "https://firebasestorage.googleapis.com/v0/b/bolvertur.appspot.com/o/";
     public static final String RESOURCE_EVENTS ="EventsCultural.json";
     public static final String QUERY_PARAM_ALT ="media";
+    public static final String RESOURCE_EVENTS2 ="EventsFav.json";
+
 
 }
