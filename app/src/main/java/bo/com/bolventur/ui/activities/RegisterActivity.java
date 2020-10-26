@@ -18,6 +18,7 @@ import com.google.gson.Gson;
 import bo.com.bolventur.R;
 import bo.com.bolventur.model.Base;
 import bo.com.bolventur.model.users.User;
+import bo.com.bolventur.utils.Constants;
 import bo.com.bolventur.utils.ErrorMapper;
 import bo.com.bolventur.viewModel.RegisterViewModel;
 
@@ -37,6 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        context = this;
         registerViewModel = new ViewModelProvider(this).get(RegisterViewModel.class);
 
         getSupportActionBar().hide();
@@ -62,7 +64,9 @@ public class RegisterActivity extends AppCompatActivity {
                 if (userBase.isSuccessful()) {
                     Toast.makeText(context, context.getString(R.string.success_message), Toast.LENGTH_SHORT).show();
 
-                    //Intent intent = new Intent(context, )
+                    Intent intent = new Intent(context, MainMenuTabActivity.class);
+                    intent.putExtra(Constants.KEY_USER, new Gson().toJson(userBase.getData()));
+                    startActivity(intent);
                 } else {
                     Toast.makeText(context, ErrorMapper.getError(context, userBase.getErrorCode()), Toast.LENGTH_SHORT).show();
                 }
