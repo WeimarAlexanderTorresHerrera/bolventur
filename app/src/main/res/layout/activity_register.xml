@@ -23,7 +23,6 @@
         android:hint="@string/username"
         android:layout_marginTop="@dimen/space_xl"
         android:layout_marginHorizontal="@dimen/space_md"
-        android:inputType="textEmailAddress|textNoSuggestions"
         android:importantForAutofill="no" />
 
     <EditText

@@ -25,6 +25,7 @@ import bo.com.bolventur.viewModel.RegisterViewModel;
 public class RegisterActivity extends AppCompatActivity {
 
     private Context context;
+    private static final String LOG = RegisterActivity.class.getName();
 
     private EditText usernameEditText;
     private EditText emailEditText;
@@ -62,7 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onChanged(Base<User> userBase) {
                 if (userBase.isSuccessful()) {
-                    Toast.makeText(context, context.getString(R.string.success_message), Toast.LENGTH_SHORT).show();
+                    Log.e(LOG, "User " + new Gson().toJson(userBase.getData()));
 
                     Intent intent = new Intent(context, MainMenuTabActivity.class);
                     intent.putExtra(Constants.KEY_USER, new Gson().toJson(userBase.getData()));

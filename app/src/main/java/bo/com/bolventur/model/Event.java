@@ -1,20 +1,46 @@
 package bo.com.bolventur.model;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Date;
+import java.util.Map;
 
-import bo.com.bolventur.model.users.HostUser;
-
+@Entity(tableName = "event_table")
 public class Event {
+    @PrimaryKey
+    @NotNull
+    @ColumnInfo(name = "uid")
     private String uid;
-    private String category;
+
+    @ColumnInfo(name = "category")
+    private int category;
+
+    @ColumnInfo(name = "photo")
     private String photo;
+
+    @ColumnInfo(name = "title")
     private String title;
+
+    @ColumnInfo(name = "date")
     private long date;
+
+    @ColumnInfo(name = "location")
     private String location;
+
+    @ColumnInfo(name = "host")
     private String host;
-    //private String getTickets;
+
+    @ColumnInfo(name = "description")
     private String description;
-    private double price;
+
+    //@Ignore
+    @ColumnInfo(name = "ticket")
+    private Map<String, String> ticket;
 
     public String getUid() {
         return uid;
@@ -24,11 +50,11 @@ public class Event {
         this.uid = uid;
     }
 
-    public String getCategory() {
+    public int getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(int category) {
         this.category = category;
     }
 
@@ -64,17 +90,13 @@ public class Event {
         this.location = location;
     }
 
+    public void setHost(String host) {
+        this.host = host;
+    }
+
     public String getHost() {
         return host;
     }
-
-    /*public String getGetTickets() {
-        return getTickets;
-    }
-
-    public void setGetTickets(String getTickets) {
-        this.getTickets = getTickets;
-    }*/
 
     public String getDescription() {
         return description;
@@ -84,11 +106,11 @@ public class Event {
         this.description = description;
     }
 
-    public double getPrice() {
-        return price;
+    public Map<String, String> getTicket() {
+        return ticket;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setTicket(Map<String, String> ticket) {
+        this.ticket = ticket;
     }
 }

@@ -48,7 +48,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
         holder.locationTextView.setText(event.getLocation());
         holder.dateTextView.setText(getDate(event.getDate()));
 
-        String price = "Bs " + event.getPrice();
+        String price = "Bs. " + event.getTicket().get("price");
         holder.priceTextView.setText(price);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

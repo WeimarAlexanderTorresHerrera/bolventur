@@ -20,7 +20,7 @@ public class MainMenuTab2ViewModel extends AndroidViewModel {
     public MainMenuTab2ViewModel(@NonNull Application application) {
         super(application);
 
-        repository = new MockRepository();
+        repository = new MockRepository(application);
     }
 
     public LiveData<Base<List<Event>>> getEvents(String category){

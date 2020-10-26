@@ -23,7 +23,7 @@ public class MainMenuTab1ViewModel extends AndroidViewModel {
     public MainMenuTab1ViewModel(@NonNull Application application) {
         super(application);
 
-        repository = new Repository();
+        repository = new Repository(application);
     }
 
     public LiveData<Base<List<Event>>> getEvents(String category){
