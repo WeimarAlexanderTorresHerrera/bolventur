@@ -11,6 +11,7 @@ import bo.com.bolventur.model.Base;
 import bo.com.bolventur.model.Event;
 import bo.com.bolventur.model.users.User;
 import bo.com.bolventur.repository.api.ApiRepository;
+import bo.com.bolventur.repository.firebase.FirebaseRepository;
 import bo.com.bolventur.repository.local.LocalRepository;
 
 public class Repository implements RepositoryImpl {
@@ -22,7 +23,7 @@ public class Repository implements RepositoryImpl {
 
     @Override
     public LiveData<Base<User>> loginEmailPassword(String email, String password) {
-        return null;
+        return FirebaseRepository.getInstance().loginWithEmailPassword(email, password);
     }
 
     @Override
