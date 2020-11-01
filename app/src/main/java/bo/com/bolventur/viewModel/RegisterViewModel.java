@@ -9,6 +9,7 @@ import androidx.lifecycle.LiveData;
 import bo.com.bolventur.model.Base;
 import bo.com.bolventur.model.users.User;
 import bo.com.bolventur.repository.MockRepository;
+import bo.com.bolventur.repository.Repository;
 import bo.com.bolventur.repository.RepositoryImpl;
 
 public class RegisterViewModel extends AndroidViewModel {
@@ -18,7 +19,7 @@ public class RegisterViewModel extends AndroidViewModel {
     public RegisterViewModel(@NonNull Application application) {
         super(application);
 
-        repository = new MockRepository(application);
+        repository = new Repository(application);
     }
 
     public LiveData<Base<User>> register(String email, String password, String name, String confirmPsswd) {

@@ -30,4 +30,8 @@ public class FirebaseRepository {
     public LiveData<Base<User>> loginWithEmailPassword(String email, String password) {
         return auth.loginWithEmailPassword(email, password);
     }
+
+    public LiveData<Base<User>> register(String email, String password) {
+        return auth.registerUser(email, password);
+    }
 }

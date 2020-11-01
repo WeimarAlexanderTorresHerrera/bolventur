@@ -20,6 +20,10 @@ public class ErrorMapper {
             return context.getString(R.string.error_do_not_match);
         } else if (errorCode == Constants.ERROR_EMPTY_REGISTER_VALUES) {
             return context.getString(R.string.error_empty_register_values);
+        } else if (errorCode == Constants.ERROR_REGISTER) {
+            return context.getString(R.string.error_register);
+        } else if (errorCode == Constants.ERROR_REGISTER_EMAIL_ALREADY_EXISTS) {
+            return context.getString(R.string.error_register_email_already_exist);
         } else {
             return context.getString(R.string.error_unknown);
         }
