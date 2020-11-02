@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    tools:context=".ui.activities.AddEventActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/bolventur"
+        android:adjustViewBounds="true"/>
+
+    <EditText
+        android:id="@+id/usernameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name of event"
+        android:layout_marginTop="@dimen/space_md"
+        android:layout_marginHorizontal="@dimen/space_md"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Date and Schedule"
+        android:layout_marginTop="@dimen/space_xs"
+        android:layout_marginHorizontal="@dimen/space_md"
+        android:inputType="textEmailAddress|textNoSuggestions"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Location"
+        android:layout_marginTop="@dimen/space_xs"
+        android:layout_marginHorizontal="@dimen/space_md"
+        android:inputType="textPassword|textNoSuggestions"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/confPasswordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Price"
+        android:layout_marginTop="@dimen/space_xs"
+        android:layout_marginHorizontal="@dimen/space_md"
+        android:inputType="textPassword|textNoSuggestions"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/detailsEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Description"
+        android:layout_marginTop="@dimen/space_xs"
+        android:layout_marginHorizontal="@dimen/space_md"
+        android:inputType="textPassword|textNoSuggestions"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_gravity="center"
+        android:paddingRight="@dimen/space_md"
+        android:paddingLeft="@dimen/space_md"
+        android:layout_marginTop="@dimen/space_lg"
+        android:background="@drawable/style_button"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:text="Create"
+        android:onClick="createEvent"/>
+
+</LinearLayout>

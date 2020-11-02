@@ -3,6 +3,7 @@ package bo.com.bolventur.utils;
 import com.google.firebase.auth.FirebaseUser;
 
 import bo.com.bolventur.model.users.User;
+import bo.com.bolventur.model.users.UserProfile;
 
 public class FirebaseMapper {
 

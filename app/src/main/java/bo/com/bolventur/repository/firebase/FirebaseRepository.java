@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer;
 
 import bo.com.bolventur.model.Base;
 import bo.com.bolventur.model.users.User;
+import bo.com.bolventur.model.users.UserProfile;
 import bo.com.bolventur.repository.firebase.auth.FirebaseAuthManager;
 import bo.com.bolventur.repository.firebase.db.FirebaseDbManager;
 
@@ -33,13 +34,15 @@ public class FirebaseRepository {
         return auth.loginWithEmailPassword(email, password);
     }
 
-    public LiveData<Base<User>> register(String email, String password) {
+    public LiveData<Base<User>> register(String email, String password, String name) {
         MutableLiveData<Base<User>> results = new MutableLiveData<>();
         auth.registerUser(email, password).observeForever(new Observer<Base<User>>() {
             @Override
             public void onChanged(Base<User> userBase) {
                 if(userBase.isSuccessful()){
-                    db.updateUser(userBase.getData()).observeForever(new Observer<Base<User>>() {
+                    User userRegistered = userBase.getData();
+                    userRegistered.setName(name);
+                    db.updateUser(userRegistered).observeForever(new Observer<Base<User>>() {
                         @Override
                         public void onChanged(Base<User> userBase) {
                             results.postValue(userBase);

@@ -12,6 +12,8 @@ import bo.com.bolventur.model.Base;
 import bo.com.bolventur.model.users.User;
 import bo.com.bolventur.utils.Constants;
 
+import static bo.com.bolventur.utils.Constants.ERROR_REGISTER;
+
 public class FirebaseDbManager {
 
     private FirebaseDatabase db;
@@ -29,7 +31,7 @@ public class FirebaseDbManager {
                 if (task.isSuccessful()) {
                     results.postValue(new Base<>(user));
                 } else {
-                    results.postValue(new Base<>(2002, task.getException()));
+                    results.postValue(new Base<>(ERROR_REGISTER, task.getException()));
                 }
             }
         });
