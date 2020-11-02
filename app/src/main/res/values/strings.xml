@@ -38,5 +38,7 @@
     <string name="success_message">Successfully registered</string>
     <string name="error_register">Error register User</string>
     <string name="error_register_email_already_exist">Email is already registered</string>
+    <string name="error_register_weak_password">Password is weak, at least 6 characteres</string>
+
 
 </resources>

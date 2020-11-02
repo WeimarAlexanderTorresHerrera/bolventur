@@ -24,6 +24,8 @@ public class ErrorMapper {
             return context.getString(R.string.error_register);
         } else if (errorCode == Constants.ERROR_REGISTER_EMAIL_ALREADY_EXISTS) {
             return context.getString(R.string.error_register_email_already_exist);
+        } else if (errorCode == Constants.ERROR_REGISTER_WEAK_PASSWORD) {
+            return context.getString(R.string.error_register_weak_password);
         } else {
             return context.getString(R.string.error_unknown);
         }

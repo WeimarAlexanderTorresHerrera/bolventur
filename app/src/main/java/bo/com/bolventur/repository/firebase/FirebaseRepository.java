@@ -1,6 +1,8 @@
 package bo.com.bolventur.repository.firebase;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 
 import bo.com.bolventur.model.Base;
 import bo.com.bolventur.model.users.User;
@@ -32,6 +34,22 @@ public class FirebaseRepository {
     }
 
     public LiveData<Base<User>> register(String email, String password) {
-        return auth.registerUser(email, password);
+        MutableLiveData<Base<User>> results = new MutableLiveData<>();
+        auth.registerUser(email, password).observeForever(new Observer<Base<User>>() {
+            @Override
+            public void onChanged(Base<User> userBase) {
+                if(userBase.isSuccessful()){
+                    db.updateUser(userBase.getData()).observeForever(new Observer<Base<User>>() {
+                        @Override
+                        public void onChanged(Base<User> userBase) {
+                            results.postValue(userBase);
+                        }
+                    });
+                }else{
+                    results.postValue(userBase);
+                }
+            }
+        });
+        return results;
     }
 }

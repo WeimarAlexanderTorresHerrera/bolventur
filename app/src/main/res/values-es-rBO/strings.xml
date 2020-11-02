@@ -35,4 +35,5 @@
     <string name="success_message">Registrado exitosamente</string>
     <string name="error_register">Error al registrar el usuario</string>
     <string name="error_register_email_already_exist">Error al registrar el usuario, el email ya está en uso</string>
+    <string name="error_register_weak_password">Password es débil, al menos 6 caracteres</string>
 </resources>
