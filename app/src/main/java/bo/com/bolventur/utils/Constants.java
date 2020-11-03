@@ -28,5 +28,8 @@ public class Constants {
     public static final String QUERY_PARAM_ALT ="media";
     public static final String RESOURCE_EVENTS2 ="EventsFav.json";
 
+    //Firebase
+    public static final String FIREBASE_PATH_EVENT = "/events";
+
 
 }

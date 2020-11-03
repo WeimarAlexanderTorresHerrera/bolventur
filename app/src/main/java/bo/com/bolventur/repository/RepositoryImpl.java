@@ -22,4 +22,10 @@ public interface RepositoryImpl {
 
     LiveData<Base<User>> register(String email, String password, String name, String confirmPsswd);
 
+    /* ************************* Events **************************/
+
+    LiveData<Base<String>> addEventToHost(String uidHost, Event event);
+
+    LiveData<Base<List<Event>>> observeHostEvent(String uidHost);
+
 }

@@ -9,70 +9,87 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="120dp"
         android:src="@drawable/bolventur"
         android:adjustViewBounds="true"/>
 
-    <EditText
-        android:id="@+id/usernameEditText"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/eventTitleTextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/nameOfEventTextInputEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Name of event"
+        android:layout_marginHorizontal="@dimen/space_md"
+        android:hint="@string/NameOfEventHintText" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/dateAndScheduleTextInputEditText"
         android:layout_marginTop="@dimen/space_md"
-        android:layout_marginHorizontal="@dimen/space_md"
-        android:importantForAutofill="no" />
-
-    <EditText
-        android:id="@+id/emailEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Date and Schedule"
-        android:layout_marginTop="@dimen/space_xs"
         android:layout_marginHorizontal="@dimen/space_md"
-        android:inputType="textEmailAddress|textNoSuggestions"
-        android:importantForAutofill="no" />
+        android:hint="@string/dateAndScheduleHintText" />
 
-    <EditText
-        android:id="@+id/passwordEditText"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/locationTextInputEditText"
+        android:layout_marginTop="@dimen/space_md"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Location"
-        android:layout_marginTop="@dimen/space_xs"
         android:layout_marginHorizontal="@dimen/space_md"
-        android:inputType="textPassword|textNoSuggestions"
-        android:importantForAutofill="no" />
+        android:hint="@string/locationHintText" />
 
-    <EditText
-        android:id="@+id/confPasswordEditText"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/priceTextInputEditText"
+        android:layout_marginTop="@dimen/space_md"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Price"
-        android:layout_marginTop="@dimen/space_xs"
         android:layout_marginHorizontal="@dimen/space_md"
-        android:inputType="textPassword|textNoSuggestions"
-        android:importantForAutofill="no" />
+        android:hint="@string/priceHintText" />
 
-    <EditText
-        android:id="@+id/detailsEditText"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/descriptionTextInputEditText"
+        android:layout_marginTop="@dimen/space_md"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Description"
-        android:layout_marginTop="@dimen/space_xs"
         android:layout_marginHorizontal="@dimen/space_md"
-        android:inputType="textPassword|textNoSuggestions"
-        android:importantForAutofill="no" />
+        android:hint="@string/descriptionHintText"
+        android:inputType="textMultiLine"
+        android:lines="3"/>
 
     <Button
-        android:id="@+id/registerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="42dp"
-        android:layout_gravity="center"
-        android:paddingRight="@dimen/space_md"
-        android:paddingLeft="@dimen/space_md"
-        android:layout_marginTop="@dimen/space_lg"
-        android:background="@drawable/style_button"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:text="Create"
-        android:onClick="createEvent"/>
+        android:id="@+id/btnPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="@dimen/space_sm"
+        android:layout_marginHorizontal="100dp"
+        android:text="@string/btnPhoto"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/space_sm"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btnCancel" />
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:text="@string/btnCreate" />
+    </LinearLayout>
+
+
 
 </LinearLayout>

@@ -114,4 +114,14 @@ public class MockRepository implements RepositoryImpl {
         results.postValue(new Base(Constants.ERROR_DONT_MATCH, null));
         return results;
     }
+
+    @Override
+    public LiveData<Base<String>> addEventToHost(String uidHost, Event event) {
+        return null;
+    }
+
+    @Override
+    public LiveData<Base<List<Event>>> observeHostEvent(String uidHost) {
+        return null;
+    }
 }

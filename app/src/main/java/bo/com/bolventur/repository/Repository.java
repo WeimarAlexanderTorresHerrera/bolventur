@@ -94,4 +94,14 @@ public class Repository implements RepositoryImpl {
     public LiveData<Base<User>> register(String email, String password, String name, String confirmPsswd) {
         return FirebaseRepository.getInstance().register(email, password, name);
     }
+
+    @Override
+    public LiveData<Base<String>> addEventToHost(String uidHost, Event event) {
+        return FirebaseRepository.getInstance().addEventToHost(uidHost, event);
+    }
+
+    @Override
+    public LiveData<Base<List<Event>>> observeHostEvent(String uidHost) {
+        return FirebaseRepository.getInstance().observeHostEvent(uidHost);
+    }
 }

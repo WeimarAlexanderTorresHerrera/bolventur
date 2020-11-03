@@ -40,5 +40,14 @@
     <string name="error_register_email_already_exist">Email is already registered</string>
     <string name="error_register_weak_password">Password is weak, at least 6 characteres</string>
 
+    <!-- Register Events-->
+    <string name="btnCreate">Create</string>
+    <string name="btnCancel">Cancel</string>
+    <string name="NameOfEventHintText">Name of event</string>
+    <string name="dateAndScheduleHintText">Date and Schedule</string>
+    <string name="locationHintText">Location</string>
+    <string name="priceHintText">Price</string>
+    <string name="descriptionHintText">Description</string>
+    <string name="btnPhoto">Pick an Image</string>
 
 </resources>

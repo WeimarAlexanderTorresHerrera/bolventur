@@ -4,7 +4,10 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 
+import java.util.List;
+
 import bo.com.bolventur.model.Base;
+import bo.com.bolventur.model.Event;
 import bo.com.bolventur.model.users.User;
 import bo.com.bolventur.model.users.UserProfile;
 import bo.com.bolventur.repository.firebase.auth.FirebaseAuthManager;
@@ -54,5 +57,14 @@ public class FirebaseRepository {
             }
         });
         return results;
+    }
+
+    public LiveData<Base<String>> addEventToHost(String uidHost, Event event){
+        return db.addEventToHost(uidHost,event);
+        //TODO add to storage
+    }
+
+    public LiveData<Base<List<Event>>> observeHostEvent(String uidHost){
+        return db.observeHostEvent(uidHost);
     }
 }
