@@ -1,6 +1,7 @@
 package bo.com.bolventur.repository;
 
 import android.app.Application;
+import android.net.Uri;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -116,7 +117,7 @@ public class MockRepository implements RepositoryImpl {
     }
 
     @Override
-    public LiveData<Base<String>> addEventToHost(String uidHost, Event event) {
+    public LiveData<Base<String>> addEventToHost(String uidHost, Event event , Uri image) {
         return null;
     }
 

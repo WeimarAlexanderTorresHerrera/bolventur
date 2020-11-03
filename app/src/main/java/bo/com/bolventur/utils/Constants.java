@@ -30,6 +30,8 @@ public class Constants {
 
     //Firebase
     public static final String FIREBASE_PATH_EVENT = "/events";
+    public static final String KEY_EVENT_UID_LOGIN = "uidHost";
 
+    public static final int ERROR_UPLOAD_IMAGE = 2006;
 
 }

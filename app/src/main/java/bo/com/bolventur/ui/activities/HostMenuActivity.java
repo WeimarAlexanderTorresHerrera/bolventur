@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import bo.com.bolventur.R;
+import bo.com.bolventur.model.users.HostUser;
+import bo.com.bolventur.utils.Constants;
 import bo.com.bolventur.viewModel.HostMenuViewModel;
 import bo.com.bolventur.viewModel.RegisterViewModel;
 
@@ -19,6 +21,8 @@ public class HostMenuActivity extends AppCompatActivity {
 
 
     private HostMenuViewModel hostMenuViewModel;
+
+    private HostUser hotsuid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,7 @@ public class HostMenuActivity extends AppCompatActivity {
 
     public void addEvent(View view) {
         Intent intent = new Intent(context, AddEventActivity.class);
+        //intent.putExtra(Constants.KEY_EVENT_UID_LOGIN, hotsuid.getUid());
         startActivity(intent);
     }
 

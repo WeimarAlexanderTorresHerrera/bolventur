@@ -2,80 +2,121 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:layout_height="wrap_content"
     android:background="@color/background"
+    android:orientation="vertical"
+
     tools:context=".ui.activities.AddEventActivity">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:src="@drawable/bolventur"
-        android:adjustViewBounds="true"/>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/eventTitleTextInputLayout"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="600dp">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/nameOfEventTextInputEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/space_md"
-        android:hint="@string/NameOfEventHintText" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/dateAndScheduleTextInputEditText"
-        android:layout_marginTop="@dimen/space_md"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/space_md"
-        android:hint="@string/dateAndScheduleHintText" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/bolventur" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/locationTextInputEditText"
-        android:layout_marginTop="@dimen/space_md"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/space_md"
-        android:hint="@string/locationHintText" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dateAndScheduleTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_md"
+                android:layout_marginTop="@dimen/space_md"
+                android:hint="@string/NameOfEventHintText" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/priceTextInputEditText"
-        android:layout_marginTop="@dimen/space_md"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/space_md"
-        android:hint="@string/priceHintText" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/locationTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_md"
+                android:layout_marginTop="@dimen/space_md"
+                android:hint="@string/locationHintText" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/descriptionTextInputEditText"
-        android:layout_marginTop="@dimen/space_md"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/space_md"
-        android:hint="@string/descriptionHintText"
-        android:inputType="textMultiLine"
-        android:lines="3"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/priceTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_md"
+                android:layout_marginTop="@dimen/space_md"
+                android:hint="@string/priceHintText" />
 
-    <Button
-        android:id="@+id/btnPhoto"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="@dimen/space_sm"
-        android:layout_marginHorizontal="100dp"
-        android:text="@string/btnPhoto"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameOfEventTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_md"
+                android:hint="@string/dateAndScheduleHintText" />
 
+            <Button
+                android:id="@+id/btnPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="100dp"
+                android:layout_marginTop="@dimen/space_sm"
+                android:text="@string/btnPhoto" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/eventTitleTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/descriptionTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_md"
+                android:layout_marginTop="@dimen/space_md"
+                android:hint="@string/descriptionHintText"
+                android:inputType="textMultiLine"
+                android:lines="3" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/space_sm"
+                android:orientation="horizontal">
+
+
+                <CheckBox
+                    android:id="@+id/culturalEventsCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tab_text_1" />
+
+                <CheckBox
+                    android:id="@+id/musicalEventsCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tab_text_2" />
+
+                <CheckBox
+                    android:id="@+id/tourismCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tab_text_3" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/space_sm"
+        android:layout_height="50dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/cancelButton"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -83,13 +124,12 @@
 
         <Button
             android:id="@+id/saveButton"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            style="@style/Widget.AppCompat.Button.Colored"
             android:text="@string/btnCreate" />
     </LinearLayout>
-
 
 
 </LinearLayout>

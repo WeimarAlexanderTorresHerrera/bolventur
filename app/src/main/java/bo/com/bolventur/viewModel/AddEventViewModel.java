@@ -1,6 +1,7 @@
 package bo.com.bolventur.viewModel;
 
 import android.app.Application;
+import android.net.Uri;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -19,8 +20,8 @@ public class AddEventViewModel extends AndroidViewModel {
         repository = new Repository(application);
     }
 
-    public LiveData<Base<String>> createEvent(String uidHost, Event event){
-        return repository.addEventToHost(uidHost, event);
+    public LiveData<Base<String>> createEvent(String uidHost, Event event, Uri image){
+        return repository.addEventToHost(uidHost, event,image);
     }
 
 

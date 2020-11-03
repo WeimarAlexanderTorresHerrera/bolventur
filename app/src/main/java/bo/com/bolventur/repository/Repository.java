@@ -1,6 +1,7 @@
 package bo.com.bolventur.repository;
 
 import android.app.Application;
+import android.net.Uri;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -96,8 +97,8 @@ public class Repository implements RepositoryImpl {
     }
 
     @Override
-    public LiveData<Base<String>> addEventToHost(String uidHost, Event event) {
-        return FirebaseRepository.getInstance().addEventToHost(uidHost, event);
+    public LiveData<Base<String>> addEventToHost(String uidHost, Event event, Uri image) {
+        return FirebaseRepository.getInstance().addEventToHost(uidHost, event,image);
     }
 
     @Override

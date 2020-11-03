@@ -1,5 +1,7 @@
 package bo.com.bolventur.repository;
 
+import android.net.Uri;
+
 import androidx.lifecycle.LiveData;
 
 import java.util.List;
@@ -22,9 +24,9 @@ public interface RepositoryImpl {
 
     LiveData<Base<User>> register(String email, String password, String name, String confirmPsswd);
 
-    /* ************************* Events **************************/
+    /* ************************* Events ************************* */
 
-    LiveData<Base<String>> addEventToHost(String uidHost, Event event);
+    LiveData<Base<String>> addEventToHost(String uidHost, Event event, Uri image);
 
     LiveData<Base<List<Event>>> observeHostEvent(String uidHost);
 
