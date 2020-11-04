@@ -26,15 +26,10 @@ public class LocalRepository {
         favoriteDao = db.favoriteDao();
     }
 
-    public LiveData<List<Event>> getEventsTab1() {
-        return eventDao.getTab1();
+    public LiveData<List<Event>> getEventsTab(int categoryId) {
+        return eventDao.getTab(categoryId);
     }
-    public LiveData<List<Event>> getEventsTab2() {
-        return eventDao.getTab2();
-    }
-    public LiveData<List<Event>> getEventsTab3() {
-        return eventDao.getTab3();
-    }
+
     public LiveData<List<Event>> getEventsTab4() {
         return eventDao.getTab4();
     }

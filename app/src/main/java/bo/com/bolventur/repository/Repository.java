@@ -2,6 +2,7 @@ package bo.com.bolventur.repository;
 
 import android.app.Application;
 import android.net.Uri;
+import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -15,6 +16,7 @@ import bo.com.bolventur.model.users.User;
 import bo.com.bolventur.repository.api.ApiRepository;
 import bo.com.bolventur.repository.firebase.FirebaseRepository;
 import bo.com.bolventur.repository.local.LocalRepository;
+import bo.com.bolventur.utils.ErrorMapper;
 
 public class Repository implements RepositoryImpl {
     private LocalRepository localRepository;
@@ -29,11 +31,11 @@ public class Repository implements RepositoryImpl {
     }
 
     @Override
-    public LiveData<Base<List<Event>>> getEventsTab1(String category) {
+    public LiveData<Base<List<Event>>> getEventsTab1(int category) {
         MutableLiveData<Base<List<Event>>> result = new MutableLiveData<>();
 
         // local
-        localRepository.getEventsTab1().observeForever(events -> result.postValue(new Base<>(events)));
+        localRepository.getEventsTab(category).observeForever(events -> result.postValue(new Base<>(events)));
 
         // API
         ApiRepository.getInstance().getEvents().observeForever(events -> {
@@ -41,6 +43,9 @@ public class Repository implements RepositoryImpl {
                 result.postValue(events);
 
                 localRepository.update(events.getData());
+            } else {
+                result.postValue(new Base<>(events.getErrorCode(), events.getException()));
+                Log.e(String.valueOf(events.getErrorCode()), events.getException().getMessage());
             }
         });
 
@@ -48,22 +53,11 @@ public class Repository implements RepositoryImpl {
     }
 
     @Override
-    public LiveData<Base<List<Event>>> getEventsTab2(String category) {
+    public LiveData<Base<List<Event>>> getEventsTab3(int category) {
         MutableLiveData<Base<List<Event>>> result = new MutableLiveData<>();
 
         // local
-        localRepository.getEventsTab2().observeForever(events -> result.postValue(new Base<>(events)));
-
-        return result;
-    }
-
-    @Override
-    public LiveData<Base<List<Event>>> getEventsTab3(String category) {
-        MutableLiveData<Base<List<Event>>> result = new MutableLiveData<>();
-
-        // local
-
-        localRepository.getEventsTab3().observeForever(events -> result.postValue(new Base<>(events)));
+        localRepository.getEventsTab(category).observeForever(events -> result.postValue(new Base<>(events)));
 
         return result;
     }
@@ -79,8 +73,9 @@ public class Repository implements RepositoryImpl {
         ApiRepository.getInstance().getEventsFav().observeForever(events -> {
             if (events.isSuccessful()) {
                 result.postValue(events);
-
-                //5localRepository.update(events.getData());
+            } else {
+                result.postValue(new Base<>(events.getErrorCode(), events.getException()));
+                Log.e(String.valueOf(events.getErrorCode()), events.getException().getMessage());
             }
         });
 
@@ -124,6 +119,9 @@ public class Repository implements RepositoryImpl {
                 result.postValue(favorites);
 
                 localRepository.updateFavorites(favorites.getData());
+            } else {
+                result.postValue(new Base<>(favorites.getErrorCode(), favorites.getException()));
+                Log.e(String.valueOf(favorites.getErrorCode()), favorites.getException().getMessage());
             }
         });
 
@@ -138,6 +136,9 @@ public class Repository implements RepositoryImpl {
         ApiRepository.getInstance().updateFavorite(favorite).observeForever(favoriteBase -> {
             if (favoriteBase.isSuccessful()) {
                 result.postValue(favoriteBase);
+            } else {
+                result.postValue(new Base<>(favoriteBase.getErrorCode(), favoriteBase.getException()));
+                Log.e(String.valueOf(favoriteBase.getErrorCode()), favoriteBase.getException().getMessage());
             }
         });
 
@@ -152,6 +153,9 @@ public class Repository implements RepositoryImpl {
         ApiRepository.getInstance().createFavorite(favorite).observeForever(favoriteBase -> {
             if (favoriteBase.isSuccessful()) {
                 result.postValue(favoriteBase);
+            } else {
+                result.postValue(new Base<>(favoriteBase.getErrorCode(), favoriteBase.getException()));
+                Log.e(String.valueOf(favoriteBase.getErrorCode()), favoriteBase.getException().getMessage());
             }
         });
 

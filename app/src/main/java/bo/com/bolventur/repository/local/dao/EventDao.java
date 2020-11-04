@@ -16,14 +16,8 @@ public interface EventDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(List<Event> events);
 
-    @Query("SELECT * FROM event_table WHERE category=0 ORDER BY title ASC")
-    LiveData<List<Event>> getTab1();
-
-    @Query("SELECT * FROM event_table WHERE category=1 ORDER BY title ASC")
-    LiveData<List<Event>> getTab2();
-
-    @Query("SELECT * FROM event_table WHERE category=2 ORDER BY title ASC")
-    LiveData<List<Event>> getTab3();
+    @Query("SELECT * FROM event_table WHERE category=:categoryId ORDER BY title ASC")
+    LiveData<List<Event>> getTab(int categoryId);
 
     @Query("SELECT * FROM event_table ORDER BY title ASC")
     LiveData<List<Event>> getTab4();
