@@ -11,23 +11,28 @@ import java.util.List;
 
 import bo.com.bolventur.model.Base;
 import bo.com.bolventur.model.Event;
-import bo.com.bolventur.repository.MockRepository;
 import bo.com.bolventur.repository.Repository;
 import bo.com.bolventur.repository.RepositoryImpl;
 
-public class MainMenuTab2ViewModel extends AndroidViewModel {
 
-    RepositoryImpl repository;
+public class HostEventViewModel extends AndroidViewModel {
+    private RepositoryImpl repository;
     private MutableLiveData<Event> event = new MutableLiveData<>();
 
-    public MainMenuTab2ViewModel(@NonNull Application application) {
+    public HostEventViewModel(@NonNull Application application) {
         super(application);
-
         repository = new Repository(application);
     }
 
-    public LiveData<Base<List<Event>>> getEvents(){
-        return repository.observeMusicalEvent();
+    public MutableLiveData<Event> getEvent() {
+        return event;
     }
 
+    public void setEvent(MutableLiveData<Event> event) {
+        this.event = event;
+    }
+
+    public LiveData<Base<List<Event>>> observeEvents(String uid){
+        return repository.observeHostEvent(uid);
+    }
 }

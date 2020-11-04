@@ -49,5 +49,6 @@
     <string name="priceHintText">Price</string>
     <string name="descriptionHintText">Description</string>
     <string name="btnPhoto">Pick an Image</string>
+    <string name="post_image">Pick image</string>
 
 </resources>

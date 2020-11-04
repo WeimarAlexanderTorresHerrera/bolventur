@@ -12,13 +12,13 @@ import java.util.List;
 
 import bo.com.bolventur.model.Base;
 import bo.com.bolventur.model.Event;
+import bo.com.bolventur.model.Favorite;
 import bo.com.bolventur.repository.Repository;
 import bo.com.bolventur.repository.RepositoryImpl;
 
 public class MainMenuTab4ViewModel extends AndroidViewModel {
 
     RepositoryImpl repository;
-    private MutableLiveData<Event> event = new MutableLiveData<>();
 
     public MainMenuTab4ViewModel(@NonNull Application application) {
         super(application);
@@ -30,11 +30,7 @@ public class MainMenuTab4ViewModel extends AndroidViewModel {
         return repository.getEventsTab4(category);
     }
 
-    public MutableLiveData<Event> getEvent() {
-        return event;
-    }
-
-    public void setEvent(Event event) {
-        this.event.postValue(event);
+    public LiveData<Base<List<Favorite>>> getFavorites() {
+        return repository.getFavorites(true);
     }
 }

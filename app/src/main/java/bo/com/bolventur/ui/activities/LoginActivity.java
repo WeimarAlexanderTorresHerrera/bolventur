@@ -15,6 +15,7 @@ import com.google.gson.Gson;
 
 import bo.com.bolventur.R;
 import bo.com.bolventur.model.users.UserProfile;
+import bo.com.bolventur.model.users.HostUser;
 import bo.com.bolventur.utils.Constants;
 import bo.com.bolventur.utils.ErrorMapper;
 import bo.com.bolventur.viewModel.LoginViewModel;
@@ -30,6 +31,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText emailEditText;
     private EditText passwordEditText;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 if (userBase.getData().getUserProfile().equals(HOST)) {
                     Intent intent = new Intent(context, HostMenuActivity.class);
+                    intent.putExtra(Constants.KEY_USER, new Gson().toJson(userBase.getData()));
                     startActivity(intent);
                 }
 

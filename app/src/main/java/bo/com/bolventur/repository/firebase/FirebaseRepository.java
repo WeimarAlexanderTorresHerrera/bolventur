@@ -1,5 +1,8 @@
 package bo.com.bolventur.repository.firebase;
 
+import android.net.Uri;
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
@@ -12,6 +15,7 @@ import bo.com.bolventur.model.users.User;
 import bo.com.bolventur.model.users.UserProfile;
 import bo.com.bolventur.repository.firebase.auth.FirebaseAuthManager;
 import bo.com.bolventur.repository.firebase.db.FirebaseDbManager;
+import bo.com.bolventur.repository.firebase.storage.FirebaseStorage;
 
 public class FirebaseRepository {
 
@@ -19,6 +23,7 @@ public class FirebaseRepository {
 
     private FirebaseAuthManager auth;
     private FirebaseDbManager db;
+    private FirebaseStorage storage;
 
 
     public static FirebaseRepository getInstance() {
@@ -31,6 +36,7 @@ public class FirebaseRepository {
     public FirebaseRepository() {
         auth = new FirebaseAuthManager();
         db = new FirebaseDbManager();
+        storage = new FirebaseStorage();
     }
 
     public LiveData<Base<User>> loginWithEmailPassword(String email, String password) {
@@ -59,12 +65,42 @@ public class FirebaseRepository {
         return results;
     }
 
-    public LiveData<Base<String>> addEventToHost(String uidHost, Event event){
-        return db.addEventToHost(uidHost,event);
-        //TODO add to storage
+    public LiveData<Base<String>> addEventToHost(String uidHost, Event event, Uri image){
+        MutableLiveData<Base<String>> results = new MutableLiveData<>();
+        //Step1 Create record
+        db.addEventToHost(uidHost, event).observeForever(uidEventBase -> {
+            if (uidEventBase.isSuccessful()){
+                //Step2 upload image
+                String uidEvent = uidEventBase.getData();
+                storage.uploadEventImage(uidEvent,image).observeForever(urlBase -> {
+                    if (urlBase.isSuccessful()){
+                        //Step3
+                        String url = urlBase.getData();
+                        Log.e("CoverPhotoUrl", url);
+                        db.updateCoverPhoto(uidHost,uidEvent,url).observeForever(resultUpdateBase -> {
+                            if (resultUpdateBase.isSuccessful()){
+                                results.postValue(new Base<>(uidEvent));
+                            }else {
+                                results.postValue(new Base<>(resultUpdateBase.getErrorCode(),resultUpdateBase.getException()));
+                            }
+                        });
+                    }else{
+                        results.postValue(new Base<>(urlBase.getErrorCode(), urlBase.getException()));
+                    }
+                });
+            }else{
+                results.postValue(new Base<>(uidEventBase.getErrorCode(), uidEventBase.getException()));
+            }
+        });
+        return results;
+
     }
 
     public LiveData<Base<List<Event>>> observeHostEvent(String uidHost){
         return db.observeHostEvent(uidHost);
+    }
+
+    public LiveData<Base<List<Event>>> observeMusicalEvent(){
+        return db.observeMusicalEvent();
     }
 }
