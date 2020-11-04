@@ -42,7 +42,7 @@
     <string name="NameOfEventHintText">Nombre del Evento</string>
     <string name="dateAndScheduleHintText">Fecha y Horario</string>
     <string name="locationHintText">Ubicación</string>
-    <string name="priceHintText">Presio</string>
+    <string name="priceHintText">Precio</string>
     <string name="descriptionHintText">Descripción</string>
     <string name="btnPhoto">Elige una Imagen</string>
     <string name="post_image">Seleccione imagen</string>
