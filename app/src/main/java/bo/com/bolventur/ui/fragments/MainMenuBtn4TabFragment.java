@@ -47,9 +47,15 @@ public class MainMenuBtn4TabFragment extends Fragment implements EventCallback {
 
     private MainMenuTab4ViewModel viewModel;
 
-    public static MainMenuBtn4TabFragment newInstance() {
-        MainMenuBtn4TabFragment fragment = new MainMenuBtn4TabFragment();
+    private String user;
+
+    public static MainMenuBtn4TabFragment newInstance(String user) {
+        MainMenuBtn4TabFragment fragment = new MainMenuBtn4TabFragment(user);
         return fragment;
+    }
+
+    public MainMenuBtn4TabFragment(String user) {
+        this.user = user;
     }
 
     @Override
@@ -112,6 +118,7 @@ public class MainMenuBtn4TabFragment extends Fragment implements EventCallback {
     public void onEventClicked(Event event) {
         Intent intent = new Intent(context, EventActivity.class);
         intent.putExtra(Constants.KEY_EVENT_SELECTED, new Gson().toJson(event));
+        intent.putExtra(Constants.KEY_USER, user);
         startActivity(intent);
         Log.e("clicked", event.getTitle());
     }

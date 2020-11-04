@@ -29,14 +29,14 @@ public class MainMenuTabPagerAdapter extends FragmentPagerAdapter {
     private final Context mContext;
     private List<Fragment> fragments = new ArrayList<>();
 
-    public MainMenuTabPagerAdapter(Context context, FragmentManager fm) {
+    public MainMenuTabPagerAdapter(Context context, FragmentManager fm, String user) {
         super(fm);
         mContext = context;
 
-        fragments.add(MainMenuBtn1TabFragment.newInstance());
-        fragments.add(MainMenuBtn2TabFragment.newInstance());
+        fragments.add(MainMenuBtn1TabFragment.newInstance(user));
+        fragments.add(MainMenuBtn2TabFragment.newInstance(user));
         fragments.add(MainMenuBtn3TabFragment.newInstance());
-        fragments.add(MainMenuBtn4TabFragment.newInstance());
+        fragments.add(MainMenuBtn4TabFragment.newInstance(user));
 
     }
 

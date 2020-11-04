@@ -14,6 +14,7 @@ import java.util.List;
 
 import bo.com.bolventur.model.Base;
 import bo.com.bolventur.model.Event;
+import bo.com.bolventur.model.Favorite;
 import bo.com.bolventur.model.users.User;
 import bo.com.bolventur.utils.Constants;
 import bo.com.bolventur.utils.Validations;
@@ -113,5 +114,20 @@ public class MockRepository implements RepositoryImpl {
 
         results.postValue(new Base(Constants.ERROR_DONT_MATCH, null));
         return results;
+    }
+
+    @Override
+    public LiveData<Base<List<Favorite>>> getFavorites() {
+        return null;
+    }
+
+    @Override
+    public LiveData<Base<Favorite>> updateFavorite(Favorite favorite) {
+        return null;
+    }
+
+    @Override
+    public LiveData<Base<Favorite>> createFavorite(Favorite favorite) {
+        return null;
     }
 }
