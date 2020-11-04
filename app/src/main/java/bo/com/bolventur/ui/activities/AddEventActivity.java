@@ -112,16 +112,16 @@ public class AddEventActivity extends AppCompatActivity implements SlideDatePick
         saveButton.setOnClickListener(view -> {
 
             Map<String, String> map = new HashMap<String, String>();
-            map.put("Price", priceTextInputEditText.getText().toString());
-            map.put("places", "value2");
+            map.put(Constants.TICKET_PRICE, priceTextInputEditText.getText().toString());
+            map.put(Constants.TICKET_PLACE, placeTextInputEditText.getText().toString());
             event.setTitle(nameOfEventTextInputEditText.getText().toString());
             event.setLocation(locationTextInputEditText.getText().toString());
             event.setTicket(map);
 
             event.setDescription(descriptionTextInputEditText.getText().toString());
-            if(culturalEventsCheckBox.isChecked()||!musicalEventsCheckBox.isChecked()||!tourismCheckBox.isChecked()){
+            if(culturalEventsCheckBox.isChecked()){
                 event.setCategory(0);
-            }else if (!culturalEventsCheckBox.isChecked()|| musicalEventsCheckBox.isChecked()||!tourismCheckBox.isChecked()){
+            }else if (musicalEventsCheckBox.isChecked()){
                 event.setCategory(1);
             }else{
                 event.setCategory(2);
@@ -135,7 +135,9 @@ public class AddEventActivity extends AppCompatActivity implements SlideDatePick
                     public void onChanged(Base<String> stringBase) {
 
                         if (stringBase.isSuccessful()){
+                            Toast.makeText(getApplicationContext(), Constants.EVENT_CREATE, Toast.LENGTH_SHORT).show();
                             Log.e(LOG, "createEvent.isSuccess:" + stringBase.getData());
+                            finish();
                         }else{
                             Log.e(LOG, "createEvent.error", stringBase.getException());
                         }

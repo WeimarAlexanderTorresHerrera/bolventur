@@ -51,4 +51,7 @@
     <string name="btnPhoto">Pick an Image</string>
     <string name="post_image">Pick image</string>
 
+    <string name="placeTextView">Place</string>
+    <string name="addEvent">Add Event</string>
+    <string name="back">Back</string>
 </resources>
