@@ -99,4 +99,8 @@ public class FirebaseRepository {
     public LiveData<Base<List<Event>>> observeHostEvent(String uidHost){
         return db.observeHostEvent(uidHost);
     }
+
+    public LiveData<Base<List<Event>>> observeMusicalEvent(){
+        return db.observeMusicalEvent();
+    }
 }

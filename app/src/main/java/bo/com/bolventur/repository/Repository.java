@@ -105,4 +105,9 @@ public class Repository implements RepositoryImpl {
     public LiveData<Base<List<Event>>> observeHostEvent(String uidHost) {
         return FirebaseRepository.getInstance().observeHostEvent(uidHost);
     }
+
+    @Override
+    public LiveData<Base<List<Event>>> observeMusicalEvent() {
+        return FirebaseRepository.getInstance().observeMusicalEvent();
+    }
 }

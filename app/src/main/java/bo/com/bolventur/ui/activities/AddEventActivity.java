@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,9 +25,15 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.niwattep.materialslidedatepicker.SlideDatePickerDialog;
+import com.niwattep.materialslidedatepicker.SlideDatePickerDialogCallback;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import bo.com.bolventur.R;
@@ -37,7 +44,7 @@ import bo.com.bolventur.utils.Constants;
 import bo.com.bolventur.viewModel.AddEventViewModel;
 import bo.com.bolventur.viewModel.HostMenuViewModel;
 
-public class AddEventActivity extends AppCompatActivity {
+public class AddEventActivity extends AppCompatActivity implements SlideDatePickerDialogCallback{
     private Context context;
     private static final String LOG = AddEventActivity.class.getName();
 
@@ -45,9 +52,11 @@ public class AddEventActivity extends AppCompatActivity {
 
     private TextInputLayout eventTitleTextInputLayout;
     private TextInputEditText nameOfEventTextInputEditText;
-    private TextInputEditText dateAndScheduleTextInputEditText;
+    private TextView showDateTextView;
+    private Button dateAndScheduleButton;
     private TextInputEditText locationTextInputEditText;
     private TextInputEditText priceTextInputEditText;
+    private TextInputEditText placeTextInputEditText;
     private TextInputEditText descriptionTextInputEditText;
     private Button btnPhoto;
     private CheckBox culturalEventsCheckBox;
@@ -62,6 +71,7 @@ public class AddEventActivity extends AppCompatActivity {
     private Uri fileCoverPhoto;
 
     private AddEventViewModel viewModel;
+    Event event = new Event();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,9 +90,11 @@ public class AddEventActivity extends AppCompatActivity {
 
 
     private void initViews() {
+        showDateTextView = findViewById(R.id.showDateTextView);
+        placeTextInputEditText = findViewById(R.id.placeTextInputEditText);
         eventTitleTextInputLayout = findViewById(R.id.eventTitleTextInputLayout);
         nameOfEventTextInputEditText = findViewById(R.id.nameOfEventTextInputEditText);
-        dateAndScheduleTextInputEditText = findViewById(R.id.dateAndScheduleTextInputEditText);
+        dateAndScheduleButton = findViewById(R.id.dateAndScheduleButton);
         locationTextInputEditText = findViewById(R.id.locationTextInputEditText);
         priceTextInputEditText = findViewById(R.id.priceTextInputEditText);
         descriptionTextInputEditText = findViewById(R.id.descriptionTextInputEditText);
@@ -98,14 +110,14 @@ public class AddEventActivity extends AppCompatActivity {
 
     private void initEvents() {
         saveButton.setOnClickListener(view -> {
-            Event event = new Event();
+
             Map<String, String> map = new HashMap<String, String>();
             map.put("Price", priceTextInputEditText.getText().toString());
             map.put("places", "value2");
             event.setTitle(nameOfEventTextInputEditText.getText().toString());
-            event.setDate(dateAndScheduleTextInputEditText.getInputType());
             event.setLocation(locationTextInputEditText.getText().toString());
             event.setTicket(map);
+
             event.setDescription(descriptionTextInputEditText.getText().toString());
             if(culturalEventsCheckBox.isChecked()||!musicalEventsCheckBox.isChecked()||!tourismCheckBox.isChecked()){
                 event.setCategory(0);
@@ -136,6 +148,18 @@ public class AddEventActivity extends AppCompatActivity {
         });
         cancelButton.setOnClickListener(view ->{
             finish();
+        });
+
+        dateAndScheduleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar endDate = Calendar.getInstance();
+                endDate.set(Calendar.YEAR, 2030);
+                SlideDatePickerDialog.Builder builder = new SlideDatePickerDialog.Builder();
+                builder.setEndDate(endDate);
+                SlideDatePickerDialog dialog = builder.build();
+                dialog.show(getSupportFragmentManager(),"Dialog");
+            }
         });
 
         btnPhoto.setOnClickListener(view ->{
@@ -203,4 +227,11 @@ public class AddEventActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onPositiveClick(int i, int i1, int i2, @NotNull Calendar calendar) {
+        SimpleDateFormat format = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+        long mil = calendar.getTime().getTime();
+        event.setDate(mil);
+        showDateTextView.setText(format.format(calendar.getTime()));
+    }
 }

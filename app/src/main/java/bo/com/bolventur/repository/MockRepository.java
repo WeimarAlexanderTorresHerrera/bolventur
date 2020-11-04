@@ -125,4 +125,9 @@ public class MockRepository implements RepositoryImpl {
     public LiveData<Base<List<Event>>> observeHostEvent(String uidHost) {
         return null;
     }
+
+    @Override
+    public LiveData<Base<List<Event>>> observeMusicalEvent() {
+        return null;
+    }
 }

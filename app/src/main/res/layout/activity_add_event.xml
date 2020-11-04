@@ -5,9 +5,7 @@
     android:layout_height="wrap_content"
     android:background="@color/background"
     android:orientation="vertical"
-
     tools:context=".ui.activities.AddEventActivity">
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -25,7 +23,7 @@
                 android:src="@drawable/bolventur" />
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/dateAndScheduleTextInputEditText"
+                android:id="@+id/nameOfEventTextInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/space_md"
@@ -49,10 +47,25 @@
                 android:hint="@string/priceHintText" />
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/nameOfEventTextInputEditText"
+                android:id="@+id/placeTextInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/space_md"
+                android:layout_marginTop="@dimen/space_md"
+                android:hint="Place" />
+
+            <TextView
+                android:id="@+id/showDateTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+            <Button
+                android:id="@+id/dateAndScheduleButton"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="100dp"
+                android:layout_marginTop="@dimen/space_sm"
                 android:hint="@string/dateAndScheduleHintText" />
 
             <Button

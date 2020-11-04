@@ -95,6 +95,31 @@ public class FirebaseDbManager {
                 };
                 Map<String, Event> map = snapshot.getValue(genericTypeIndicator);
                 List<Event> events = new ArrayList<>();
+                    for(Map.Entry<String, Event> entry : map.entrySet()){
+                        Event event = entry.getValue();
+                        event.setUid(entry.getKey());
+                        events.add(event);
+                }
+                results.postValue(new Base<>(events));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        return results;
+    }
+    public LiveData<Base<List<Event>>> observeMusicalEvent() {
+        MutableLiveData<Base<List<Event>>> results = new MutableLiveData<>();
+        String path = Constants.FIREBASE_PATH_EVENT + "/Q4wKNwStGpUhC9VqY6XckQicLJ02";
+        db.getReference(path).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                GenericTypeIndicator<Map<String, Event>> genericTypeIndicator = new GenericTypeIndicator<Map<String, Event>>() {
+                };
+                Map<String, Event> map = snapshot.getValue(genericTypeIndicator);
+                List<Event> events = new ArrayList<>();
                 for(Map.Entry<String, Event> entry : map.entrySet()){
                     Event event = entry.getValue();
                     event.setUid(entry.getKey());
