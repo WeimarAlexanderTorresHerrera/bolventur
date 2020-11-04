@@ -23,7 +23,7 @@ public interface RepositoryImpl {
 
     LiveData<Base<User>> register(String email, String password, String name, String confirmPsswd);
 
-    LiveData<Base<List<Favorite>>> getFavorites();
+    LiveData<Base<List<Favorite>>> getFavorites(boolean loadLocal);
 
     LiveData<Base<Favorite>> updateFavorite(Favorite favorite);
 

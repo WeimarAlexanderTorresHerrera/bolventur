@@ -22,7 +22,5 @@ public class Constants {
     public static final String BASE_URL = "https://bolventur.herokuapp.com/api/";
     public static final String RESOURCE_EVENTS = "event";
     public static final String RESOURCE_FAVORITES = "favorite";
-    public static final String QUERY_PARAM_ALT = "media";
-    public static final String RESOURCE_EVENTS2 = "EventsFav.json";
 
 }

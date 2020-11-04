@@ -33,7 +33,6 @@ public class Repository implements RepositoryImpl {
         // local
         localRepository.getEventsTab1().observeForever(events -> result.postValue(new Base<>(events)));
 
-
         // API
         ApiRepository.getInstance().getEvents().observeForever(events -> {
             if (events.isSuccessful()) {
@@ -52,7 +51,6 @@ public class Repository implements RepositoryImpl {
 
         // local
         localRepository.getEventsTab2().observeForever(events -> result.postValue(new Base<>(events)));
-
 
         return result;
     }
@@ -80,10 +78,9 @@ public class Repository implements RepositoryImpl {
             if (events.isSuccessful()) {
                 result.postValue(events);
 
-                localRepository.update(events.getData());
+                //5localRepository.update(events.getData());
             }
         });
-
 
         return result;
     }
@@ -96,19 +93,20 @@ public class Repository implements RepositoryImpl {
     }
 
     @Override
-    public LiveData<Base<List<Favorite>>> getFavorites() {
+    public LiveData<Base<List<Favorite>>> getFavorites(boolean loadLocal) {
         MutableLiveData<Base<List<Favorite>>> result = new MutableLiveData<>();
 
-        // local
-        //localRepository.getEventsTab1().observeForever(events -> result.postValue(new Base<>(events)));
-
+        if (loadLocal) {
+            // local
+            localRepository.getFavorites().observeForever(favorites -> result.postValue(new Base<>(favorites)));
+        }
 
         // API
         ApiRepository.getInstance().getFavorites().observeForever(favorites -> {
             if (favorites.isSuccessful()) {
                 result.postValue(favorites);
 
-                //localRepository.update(events.getData());
+                localRepository.updateFavorites(favorites.getData());
             }
         });
 

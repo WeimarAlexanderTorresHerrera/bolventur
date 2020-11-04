@@ -118,7 +118,7 @@ public class ApiRepository {
 
     public LiveData<Base<List<Event>>> getEventsFav(){
         MutableLiveData<Base<List<Event>>> result = new MutableLiveData<>();
-        eventsApi.getEventsFav(Constants.QUERY_PARAM_ALT).enqueue(new Callback<List<Event>>() {
+        eventsApi.getEventsFav().enqueue(new Callback<List<Event>>() {
             @Override
             public void onResponse(Call<List<Event>> call, Response<List<Event>> response) {
                 if(response.isSuccessful()){
