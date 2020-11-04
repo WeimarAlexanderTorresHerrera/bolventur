@@ -11,6 +11,10 @@ public class Constants {
     public static final int ERROR_DONT_MATCH = 2005;
     public static final int ERROR_EMPTY_REGISTER_VALUES = 2006;
 
+    public static final int ERROR_REGISTER = 2007;
+    public static final int ERROR_REGISTER_EMAIL_ALREADY_EXISTS = 2008;
+    public static final int ERROR_REGISTER_WEAK_PASSWORD = 2009;
+
     public static final String KEY_USER = "user";
     public static final String KEY_EVENT_SELECTED = "event selected";
 
@@ -23,4 +27,11 @@ public class Constants {
     public static final String RESOURCE_EVENTS = "event";
     public static final String RESOURCE_FAVORITES = "favorite";
 
+    //Firebase
+    public static final String FIREBASE_PATH_EVENT = "/events";
+    public static final String KEY_EVENT_UID_LOGIN = "uidHost";
+
+    public static final int ERROR_UPLOAD_IMAGE = 2006;
+
+    public static final String DIRECTORY_IMAGE = "bolventur_image";
 }

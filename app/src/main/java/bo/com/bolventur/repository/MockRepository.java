@@ -1,6 +1,7 @@
 package bo.com.bolventur.repository;
 
 import android.app.Application;
+import android.net.Uri;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -117,12 +118,28 @@ public class MockRepository implements RepositoryImpl {
     }
 
     @Override
+    public LiveData<Base<String>> addEventToHost(String uidHost, Event event , Uri image) {
+        return null;
+    }
+  
+      @Override
     public LiveData<Base<List<Favorite>>> getFavorites(boolean loadLocal) {
         return null;
     }
 
     @Override
+    public LiveData<Base<List<Event>>> observeHostEvent(String uidHost) {
+        return null;
+    }
+
+    @Override
     public LiveData<Base<Favorite>> updateFavorite(Favorite favorite) {
+        return null;
+    }
+
+  
+    @Override
+    public LiveData<Base<List<Event>>> observeMusicalEvent() {
         return null;
     }
 

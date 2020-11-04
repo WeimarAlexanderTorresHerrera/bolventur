@@ -96,7 +96,7 @@ public class MainMenuBtn2TabFragment extends Fragment implements EventCallback{
     }
 
     private void subscribeData() {
-        viewModel.getEvents("").observe(getViewLifecycleOwner(), new Observer<Base<List<Event>>>() {
+        viewModel.getEvents().observe(getViewLifecycleOwner(), new Observer<Base<List<Event>>>() {
             @Override
             public void onChanged(Base<List<Event>> listBase) {
                 if (listBase.isSuccessful()) {
@@ -110,6 +110,8 @@ public class MainMenuBtn2TabFragment extends Fragment implements EventCallback{
             }
         });
     }
+
+
 
     @Override
     public void onEventClicked(Event event) {

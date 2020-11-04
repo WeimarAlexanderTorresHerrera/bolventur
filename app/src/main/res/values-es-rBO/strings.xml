@@ -17,7 +17,6 @@
     <string name="error_do_not_match">Las contraseñas no coinciden</string>
     <string name="error_empty_register_values">Por favor, llene todos los campos</string>
     <string name="error_unknown">Error desconocido</string>
-    <string name="success_message">Registrado exitosamente</string>
 
     <string name="botton1">Eventos Culturales</string>
     <string name="botton2">Eventos Musicales</string>
@@ -32,4 +31,19 @@
     <string name="title_activity_main_menu_taab">MainMenuTaabActivity</string>
 
     <string name="title_activity_main_menu_tab">MainMenuTabActivity</string>
+
+    <string name="success_message">Registrado exitosamente</string>
+    <string name="error_register">Error al registrar el usuario</string>
+    <string name="error_register_email_already_exist">Error al registrar el usuario, el email ya está en uso</string>
+    <string name="error_register_weak_password">Password es débil, al menos 6 caracteres</string>
+
+    <string name="btnCreate">Crear</string>
+    <string name="btnCancel">Cancelar</string>
+    <string name="NameOfEventHintText">Nombre del Evento</string>
+    <string name="dateAndScheduleHintText">Fecha y Horario</string>
+    <string name="locationHintText">Ubicación</string>
+    <string name="priceHintText">Presio</string>
+    <string name="descriptionHintText">Descripción</string>
+    <string name="btnPhoto">Elige una Imagen</string>
+    <string name="post_image">Seleccione imagen</string>
 </resources>
