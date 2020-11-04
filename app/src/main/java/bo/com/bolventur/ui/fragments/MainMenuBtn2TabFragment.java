@@ -1,6 +1,7 @@
 package bo.com.bolventur.ui.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,14 +24,18 @@ import java.util.List;
 import bo.com.bolventur.R;
 import bo.com.bolventur.model.Base;
 import bo.com.bolventur.model.Event;
+import bo.com.bolventur.ui.activities.EventActivity;
+import bo.com.bolventur.ui.activities.MainMenuTabActivity;
 import bo.com.bolventur.ui.adapters.EventAdapter;
+import bo.com.bolventur.ui.callback.EventCallback;
+import bo.com.bolventur.utils.Constants;
 import bo.com.bolventur.utils.ErrorMapper;
 import bo.com.bolventur.viewModel.MainMenuTab2ViewModel;
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MainMenuBtn2TabFragment extends Fragment {
+public class MainMenuBtn2TabFragment extends Fragment implements EventCallback{
 
     private static final String LOG = MainMenuBtn2TabFragment.class.getSimpleName();
     private Context context;
@@ -41,9 +46,15 @@ public class MainMenuBtn2TabFragment extends Fragment {
 
     private MainMenuTab2ViewModel viewModel;
 
-    public static MainMenuBtn2TabFragment newInstance() {
-        MainMenuBtn2TabFragment fragment = new MainMenuBtn2TabFragment();
+    private String user;
+
+    public static MainMenuBtn2TabFragment newInstance(String user) {
+        MainMenuBtn2TabFragment fragment = new MainMenuBtn2TabFragment(user);
         return fragment;
+    }
+
+    public MainMenuBtn2TabFragment(String user) {
+        this.user = user;
     }
 
     @Override
@@ -81,11 +92,11 @@ public class MainMenuBtn2TabFragment extends Fragment {
     }
 
     public void initEvents(){
-
+        eventAdapter.setCallback(this);
     }
 
     private void subscribeData() {
-        viewModel.getEvents("").observe(getViewLifecycleOwner(), new Observer<Base<List<Event>>>() {
+        viewModel.getEvents().observe(getViewLifecycleOwner(), new Observer<Base<List<Event>>>() {
             @Override
             public void onChanged(Base<List<Event>> listBase) {
                 if (listBase.isSuccessful()) {
@@ -99,5 +110,15 @@ public class MainMenuBtn2TabFragment extends Fragment {
             }
         });
     }
-    
+
+
+
+    @Override
+    public void onEventClicked(Event event) {
+        Intent intent = new Intent(context, EventActivity.class);
+        intent.putExtra(Constants.KEY_EVENT_SELECTED, new Gson().toJson(event));
+        intent.putExtra(Constants.KEY_USER, user);
+        startActivity(intent);
+        Log.e("clicked", event.getTitle());
+    }
 }

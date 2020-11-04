@@ -2,17 +2,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="bo.com.bolventur">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.activities.HostEventActivity"></activity>
         <activity
             android:name=".ui.activities.MainMenuTabActivity"
             android:label="@string/title_activity_main_menu_tab"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".ui.activities.EventActivity" />
         <activity android:name=".ui.activities.RegisterActivity" />
         <activity
@@ -24,6 +29,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.activities.HostMenuActivity" />
+        <activity android:name=".ui.activities.AddEventActivity" />
     </application>
 
 </manifest>

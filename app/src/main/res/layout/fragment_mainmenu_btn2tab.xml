@@ -5,14 +5,13 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/RosyBrown"
+    android:background="@color/background"
     tools:context=".ui.fragments.MainMenuBtn1TabFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/musicalEventsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/space_md">
-    </androidx.recyclerview.widget.RecyclerView>
+        app:layout_constraintTop_toTopOf="parent"></androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

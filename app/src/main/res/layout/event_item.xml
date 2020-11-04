@@ -29,13 +29,16 @@
             android:singleLine="true"
             android:textSize="@dimen/text_lg"
             android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
             tools:text="Mon Laferte - La gira de Norma" />
 
         <TextView
             android:id="@+id/locationTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:singleLine="true"
             android:textSize="@dimen/text_md"
+            android:textStyle="bold"
             tools:text="Teatro al Aire Libre" />
 
         <RelativeLayout

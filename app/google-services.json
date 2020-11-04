@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "421949210937",
+    "firebase_url": "https://bolvertur.firebaseio.com",
+    "project_id": "bolvertur",
+    "storage_bucket": "bolvertur.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421949210937:android:770dd7e5954fb6bc81a8e8",
+        "android_client_info": {
+          "package_name": "bo.com.bolventur"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "421949210937-h02pi3me30guagsc5g7jh3mg8h3lf2ff.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "bo.com.bolventur",
+            "certificate_hash": "ecb34057b28960ccb99275f3b964b50ea29c456a"
+          }
+        },
+        {
+          "client_id": "421949210937-39hg7vcv32jil5jk001ebe43bj098coh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpm_Ujh6NxAMgtms4NW376Fi97a7bxczA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "421949210937-39hg7vcv32jil5jk001ebe43bj098coh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

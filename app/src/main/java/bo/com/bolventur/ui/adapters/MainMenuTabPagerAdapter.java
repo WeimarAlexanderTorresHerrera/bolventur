@@ -14,7 +14,6 @@ import java.util.List;
 import bo.com.bolventur.R;
 import bo.com.bolventur.ui.fragments.MainMenuBtn1TabFragment;
 import bo.com.bolventur.ui.fragments.MainMenuBtn2TabFragment;
-import bo.com.bolventur.ui.fragments.MainMenuBtn3TabFragment;
 import bo.com.bolventur.ui.fragments.MainMenuBtn4TabFragment;
 
 
@@ -25,18 +24,17 @@ import bo.com.bolventur.ui.fragments.MainMenuBtn4TabFragment;
 public class MainMenuTabPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2,R.string.tab_text_3, R.string.tab_text_4};
+    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2, R.string.tab_text_4};
     private final Context mContext;
     private List<Fragment> fragments = new ArrayList<>();
 
-    public MainMenuTabPagerAdapter(Context context, FragmentManager fm) {
+    public MainMenuTabPagerAdapter(Context context, FragmentManager fm, String user) {
         super(fm);
         mContext = context;
 
-        fragments.add(MainMenuBtn1TabFragment.newInstance());
-        fragments.add(MainMenuBtn2TabFragment.newInstance());
-        fragments.add(MainMenuBtn3TabFragment.newInstance());
-        fragments.add(MainMenuBtn4TabFragment.newInstance());
+        fragments.add(MainMenuBtn1TabFragment.newInstance(user));
+        fragments.add(MainMenuBtn2TabFragment.newInstance(user));
+        fragments.add(MainMenuBtn4TabFragment.newInstance(user));
 
     }
 
@@ -53,7 +51,7 @@ public class MainMenuTabPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        // Show 2 total pages.
-        return 4;
+        // Show 3 total pages.
+        return 3;
     }
 }

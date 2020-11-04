@@ -24,7 +24,7 @@ public class RegisterUnitTest {
 
     @Before
     public void before() {
-        repository = new MockRepository();
+        repository = new MockRepository(null);
     }
 
     @Rule
@@ -33,10 +33,10 @@ public class RegisterUnitTest {
     @Test
     public void registerConfirmPassword() {
         //String uid = "0000";
-        String email = "test@test.com";
-        String password = "test";
-        String confPassword = "test";
-        String name = "Test";
+        String email = "pao@pao.com";
+        String password = "pao";
+        String confPassword = "pao";
+        String name = "Pao";
         LiveData<Base<User>> result = repository.register(email, password, name, confPassword);
 
         assertNotNull(result);

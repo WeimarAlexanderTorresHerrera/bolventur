@@ -1,29 +1,40 @@
 package bo.com.bolventur.ui.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import bo.com.bolventur.R;
+import bo.com.bolventur.model.Base;
 import bo.com.bolventur.model.Event;
+import bo.com.bolventur.ui.activities.EventActivity;
 import bo.com.bolventur.ui.adapters.EventAdapter;
+import bo.com.bolventur.ui.callback.EventCallback;
+import bo.com.bolventur.utils.Constants;
+import bo.com.bolventur.utils.ErrorMapper;
 import bo.com.bolventur.viewModel.MainMenuTab1ViewModel;
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MainMenuBtn1TabFragment extends Fragment {
+public class MainMenuBtn1TabFragment extends Fragment implements EventCallback{
 
     private static final String LOG = MainMenuBtn1TabFragment.class.getSimpleName();
     private Context context;
@@ -34,9 +45,15 @@ public class MainMenuBtn1TabFragment extends Fragment {
 
     private MainMenuTab1ViewModel viewModel;
 
-    public static MainMenuBtn1TabFragment newInstance() {
-        MainMenuBtn1TabFragment fragment = new MainMenuBtn1TabFragment();
+    private String user;
+
+    public static MainMenuBtn1TabFragment newInstance(String user) {
+        MainMenuBtn1TabFragment fragment = new MainMenuBtn1TabFragment(user);
         return fragment;
+    }
+
+    public MainMenuBtn1TabFragment(String user) {
+        this.user = user;
     }
 
     @Override
@@ -51,7 +68,6 @@ public class MainMenuBtn1TabFragment extends Fragment {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(this).get(MainMenuTab1ViewModel.class);
 
-
     }
 
     @Override
@@ -61,6 +77,8 @@ public class MainMenuBtn1TabFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_mainmenu_btn1tab, container, false);
         initViews(root);
         initEvents();
+        subscribeData();
+
         return root;
     }
 
@@ -73,7 +91,31 @@ public class MainMenuBtn1TabFragment extends Fragment {
     }
 
     public void initEvents(){
-
+        eventAdapter.setCallback(this);
     }
 
+    private void subscribeData() {
+        viewModel.getEvents(0).observe(getViewLifecycleOwner(), new Observer<Base<List<Event>>>() {
+            @Override
+            public void onChanged(Base<List<Event>> listBase) {
+                if (listBase.isSuccessful()) {
+                    events = listBase.getData();
+                    eventAdapter.updateEvents(events);
+                    Log.e("getCultural", new Gson().toJson(listBase));
+                } else {
+                    Toast.makeText(context, ErrorMapper.getError(context, listBase.getErrorCode()),
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    @Override
+    public void onEventClicked(Event event) {
+        Intent intent = new Intent(context, EventActivity.class);
+        intent.putExtra(Constants.KEY_EVENT_SELECTED, new Gson().toJson(event));
+        intent.putExtra(Constants.KEY_USER, user);
+        startActivity(intent);
+        Log.e("clicked", event.getTitle());
+    }
 }
