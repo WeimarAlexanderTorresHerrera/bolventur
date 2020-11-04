@@ -3,7 +3,7 @@
     package="bo.com.bolventur">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,10 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.activities.HostEventActivity"></activity>
         <activity
             android:name=".ui.activities.MainMenuTabActivity"
             android:label="@string/title_activity_main_menu_tab"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.activities.EventActivity" />
         <activity android:name=".ui.activities.RegisterActivity" />
         <activity

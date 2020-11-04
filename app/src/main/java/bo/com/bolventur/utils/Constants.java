@@ -34,4 +34,6 @@ public class Constants {
 
     public static final int ERROR_UPLOAD_IMAGE = 2006;
 
+    public static final String DIRECTORY_IMAGE = "bolventur_image";
+
 }

@@ -26,11 +26,13 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Map;
 
 import bo.com.bolventur.R;
 import bo.com.bolventur.model.Base;
 import bo.com.bolventur.model.Event;
+import bo.com.bolventur.utils.CompressImage;
 import bo.com.bolventur.utils.Constants;
 import bo.com.bolventur.viewModel.AddEventViewModel;
 import bo.com.bolventur.viewModel.HostMenuViewModel;
@@ -72,6 +74,7 @@ public class AddEventActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         initViews();
         initEvents();
+        getIntentValues();
     }
 
 
@@ -92,13 +95,17 @@ public class AddEventActivity extends AppCompatActivity {
 
     }
 
+
     private void initEvents() {
         saveButton.setOnClickListener(view -> {
             Event event = new Event();
+            Map<String, String> map = new HashMap<String, String>();
+            map.put("Price", priceTextInputEditText.getText().toString());
+            map.put("places", "value2");
             event.setTitle(nameOfEventTextInputEditText.getText().toString());
             event.setDate(dateAndScheduleTextInputEditText.getInputType());
             event.setLocation(locationTextInputEditText.getText().toString());
-            //event.setTicket(,priceTextInputEditText.getText().toString());
+            event.setTicket(map);
             event.setDescription(descriptionTextInputEditText.getText().toString());
             if(culturalEventsCheckBox.isChecked()||!musicalEventsCheckBox.isChecked()||!tourismCheckBox.isChecked()){
                 event.setCategory(0);
@@ -190,8 +197,7 @@ public class AddEventActivity extends AppCompatActivity {
         if (resultCode == RESULT_OK) {
             if (requestCode == RC_GALLERY && data != null && data.getData() != null) {
                 Uri image = data.getData();
-                fileCoverPhoto =image;
-          //      fileCoverPhoto = CompressImage.compressImage(image, context);
+                fileCoverPhoto = CompressImage.compressImage(image, context);
             }
         }
     }

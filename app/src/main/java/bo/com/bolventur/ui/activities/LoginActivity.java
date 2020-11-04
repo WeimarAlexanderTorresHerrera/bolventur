@@ -70,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 if (userBase.getData().getUserProfile().equals(HOST)) {
                     Intent intent = new Intent(context, HostMenuActivity.class);
-
+                    intent.putExtra(Constants.KEY_USER, new Gson().toJson(userBase.getData()));
                     startActivity(intent);
                 }
 
