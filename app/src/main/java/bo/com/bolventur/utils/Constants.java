@@ -23,7 +23,8 @@ public class Constants {
     public static final int ERROR_NO_CONNECTION = 1001;
 
     //Api
-    public static final String BASE_URL = "http://192.168.0.17/bolventur_rest_api/public/api/";
+    // public static final String BASE_URL = "http://192.168.0.17/bolventur_rest_api/public/api/";
+    public static final String BASE_URL = "https://bolventur.herokuapp.com/api/";
     public static final String RESOURCE_EVENTS = "event";
     public static final String RESOURCE_FAVORITES = "favorite";
 
