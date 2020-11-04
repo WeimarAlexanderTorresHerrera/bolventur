@@ -15,11 +15,9 @@ public interface RepositoryImpl {
 
     LiveData<Base<User>> loginEmailPassword(String email, String password);
 
-    LiveData<Base<List<Event>>> getEventsTab1(String category);
+    LiveData<Base<List<Event>>> getEventsTab1(int category);
 
-    LiveData<Base<List<Event>>> getEventsTab2(String category);
-
-    LiveData<Base<List<Event>>> getEventsTab3(String category);
+    LiveData<Base<List<Event>>> getEventsTab3(int category);
 
     LiveData<Base<List<Event>>> getEventsTab4(String category);
 

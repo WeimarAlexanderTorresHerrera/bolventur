@@ -80,41 +80,43 @@ public class EventActivity extends AppCompatActivity {
         }
 
         favoriteButton.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (favorite != null) {
-                if (favorite.getFavorite() == 1) {
-                    favorite.setFavorite(0);
+            if (event.getCategory() == 0) {
+                if (favorite != null) {
+                    if (favorite.getFavorite() == 1) {
+                        favorite.setFavorite(0);
 
-                    viewModel.updateFavorite(favorite).observe(this, favoriteBase -> {
-                        if (favoriteBase.isSuccessful()) {
-                            Log.e(LOG, "updateFavorite.isSuccess:" + favoriteBase.getData());
-                        } else {
-                            Log.e(LOG, "updateFavorite.error", favoriteBase.getException());
-                        }
-                    });
+                        viewModel.updateFavorite(favorite).observe(this, favoriteBase -> {
+                            if (favoriteBase.isSuccessful()) {
+                                Log.e(LOG, "updateFavorite.isSuccess:" + favoriteBase.getData());
+                            } else {
+                                Log.e(LOG, "updateFavorite.error", favoriteBase.getException());
+                            }
+                        });
+                    } else {
+                        favorite.setFavorite(1);
+
+                        viewModel.updateFavorite(favorite).observe(this, favoriteBase -> {
+                            if (favoriteBase.isSuccessful()) {
+                                Log.e(LOG, "updateFavorite.isSuccess:" + favoriteBase.getData());
+                            } else {
+                                Log.e(LOG, "updateFavorite.error", favoriteBase.getException());
+                            }
+                        });
+                    }
                 } else {
+                    favorite = new Favorite();
+                    favorite.setUid(user.getUid());
+                    favorite.setEid(event.getUid());
                     favorite.setFavorite(1);
 
-                    viewModel.updateFavorite(favorite).observe(this, favoriteBase -> {
+                    viewModel.createFavorite(favorite).observe(this, favoriteBase -> {
                         if (favoriteBase.isSuccessful()) {
-                            Log.e(LOG, "updateFavorite.isSuccess:" + favoriteBase.getData());
+                            Log.e(LOG, "createFavorite.isSuccess:" + favoriteBase.getData());
                         } else {
-                            Log.e(LOG, "updateFavorite.error", favoriteBase.getException());
+                            Log.e(LOG, "createFavorite.error", favoriteBase.getException());
                         }
                     });
                 }
-            } else {
-                favorite = new Favorite();
-                favorite.setUid(user.getUid());
-                favorite.setEid(event.getUid());
-                favorite.setFavorite(1);
-
-                viewModel.createFavorite(favorite).observe(this, favoriteBase -> {
-                    if (favoriteBase.isSuccessful()) {
-                        Log.e(LOG, "createFavorite.isSuccess:" + favoriteBase.getData());
-                    } else {
-                        Log.e(LOG, "createFavorite.error", favoriteBase.getException());
-                    }
-                });
             }
             if (isChecked) {
                 favoriteButton.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_baseline_star_24));

@@ -95,7 +95,7 @@ public class MainMenuBtn1TabFragment extends Fragment implements EventCallback{
     }
 
     private void subscribeData() {
-        viewModel.getEvents("").observe(getViewLifecycleOwner(), new Observer<Base<List<Event>>>() {
+        viewModel.getEvents(0).observe(getViewLifecycleOwner(), new Observer<Base<List<Event>>>() {
             @Override
             public void onChanged(Base<List<Event>> listBase) {
                 if (listBase.isSuccessful()) {

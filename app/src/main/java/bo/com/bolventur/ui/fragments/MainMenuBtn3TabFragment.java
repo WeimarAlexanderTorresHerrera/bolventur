@@ -87,7 +87,7 @@ public class MainMenuBtn3TabFragment extends Fragment {
     }
 
     private void subscribeData() {
-        viewModel.getEvents("").observe(getViewLifecycleOwner(), new Observer<Base<List<Event>>>() {
+        viewModel.getEvents(2).observe(getViewLifecycleOwner(), new Observer<Base<List<Event>>>() {
             @Override
             public void onChanged(Base<List<Event>> listBase) {
                 if (listBase.isSuccessful()) {
