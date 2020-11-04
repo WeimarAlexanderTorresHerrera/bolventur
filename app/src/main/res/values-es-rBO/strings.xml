@@ -46,4 +46,8 @@
     <string name="descriptionHintText">Descripción</string>
     <string name="btnPhoto">Elige una Imagen</string>
     <string name="post_image">Seleccione imagen</string>
+
+    <string name="placeTextView">Sitio</string>
+    <string name="addEvent">Añadir evento</string>
+    <string name="back">Atrás</string>
 </resources>

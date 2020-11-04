@@ -24,7 +24,7 @@
         android:layout_marginTop="@dimen/space_xl"
         android:background="@drawable/style_button"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:text="Add Event"
+        android:text="@string/addEvent"
         android:onClick="addEvent"/>
 
     <Button
@@ -37,7 +37,7 @@
         android:layout_marginTop="@dimen/space_lg"
         android:background="@drawable/style_button"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:text="Profile"
+        android:text="@string/back"
         android:onClick="profile"/>
 
 </LinearLayout>
