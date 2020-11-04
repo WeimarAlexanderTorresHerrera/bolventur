@@ -2,14 +2,12 @@ package bo.com.bolventur.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,14 +16,12 @@ import android.widget.ToggleButton;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
 import bo.com.bolventur.R;
-import bo.com.bolventur.model.Base;
 import bo.com.bolventur.model.Event;
 import bo.com.bolventur.model.Favorite;
 import bo.com.bolventur.model.users.User;
@@ -67,7 +63,7 @@ public class EventActivity extends AppCompatActivity {
     private void isFavorite() {
         if (event.getCategory() == 0) {
             if (favorite != null) {
-                if (favorite.isFavorite() == 0) {
+                if (favorite.getFavorite() == 0) {
                     favoriteButton.setChecked(false);
                     favoriteButton.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_baseline_star_border_24));
                 } else {
@@ -85,7 +81,7 @@ public class EventActivity extends AppCompatActivity {
 
         favoriteButton.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (favorite != null) {
-                if (favorite.isFavorite() == 1) {
+                if (favorite.getFavorite() == 1) {
                     favorite.setFavorite(0);
 
                     viewModel.updateFavorite(favorite).observe(this, favoriteBase -> {

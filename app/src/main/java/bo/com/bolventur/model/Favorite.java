@@ -1,9 +1,22 @@
 package bo.com.bolventur.model;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "favorite_table")
 public class Favorite {
+    @PrimaryKey
+    @ColumnInfo(name = "id")
     private int id;
+
+    @ColumnInfo(name = "uid")
     private String uid;
+
+    @ColumnInfo(name = "eid")
     private String eid;
+
+    @ColumnInfo(name = "favorite")
     private int favorite;
 
     public int getId() {
@@ -30,7 +43,7 @@ public class Favorite {
         this.eid = eid;
     }
 
-    public int isFavorite() {
+    public int getFavorite() {
         return favorite;
     }
 

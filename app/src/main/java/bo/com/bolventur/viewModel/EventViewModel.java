@@ -27,7 +27,7 @@ public class EventViewModel extends AndroidViewModel {
     }
 
     public LiveData<Base<List<Favorite>>> getFavorites() {
-        return repository.getFavorites();
+        return repository.getFavorites(false);
     }
 
     public LiveData<Base<Favorite>> updateFavorite(Favorite favorite) {

@@ -117,7 +117,7 @@ public class MockRepository implements RepositoryImpl {
     }
 
     @Override
-    public LiveData<Base<List<Favorite>>> getFavorites() {
+    public LiveData<Base<List<Favorite>>> getFavorites(boolean loadLocal) {
         return null;
     }
 

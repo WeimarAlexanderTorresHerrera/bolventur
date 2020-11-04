@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -26,6 +27,8 @@ import com.google.gson.Gson;
 import bo.com.bolventur.R;
 import bo.com.bolventur.model.Base;
 import bo.com.bolventur.model.Event;
+import bo.com.bolventur.model.Favorite;
+import bo.com.bolventur.model.users.User;
 import bo.com.bolventur.ui.adapters.EventAdapter;
 import bo.com.bolventur.ui.activities.EventActivity;
 import bo.com.bolventur.ui.callback.EventCallback;
@@ -43,6 +46,8 @@ public class MainMenuBtn4TabFragment extends Fragment implements EventCallback {
 
     private EventAdapter eventAdapter;
     private List<Event> events = new ArrayList<>();
+    private List<Favorite> favorites = new ArrayList<>();
+
     private RecyclerView eventRecyclerView;
 
     private MainMenuTab4ViewModel viewModel;
@@ -99,17 +104,42 @@ public class MainMenuBtn4TabFragment extends Fragment implements EventCallback {
     }
 
     private void subscribeData() {
-        viewModel.getEvents("").observe(getViewLifecycleOwner(), new Observer<Base<List<Event>>>() {
-            @Override
-            public void onChanged(Base<List<Event>> listBase) {
-                if (listBase.isSuccessful()) {
-                    events = listBase.getData();
-                    eventAdapter.updateEvents(events);
-                    Log.e("getFavorites", new Gson().toJson(listBase));
-                } else {
-                    Toast.makeText(context, ErrorMapper.getError(context, listBase.getErrorCode()),
-                            Toast.LENGTH_SHORT).show();
+        viewModel.getFavorites().observe(getViewLifecycleOwner(), listBase -> {
+            if (listBase.isSuccessful()) {
+                favorites = listBase.getData();
+                Log.e("getFavoritesBD", new Gson().toJson(favorites));
+            } else {
+                Toast.makeText(context, ErrorMapper.getError(context, listBase.getErrorCode()),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+        viewModel.getEvents("").observe(getViewLifecycleOwner(), listBase -> {
+            if (listBase.isSuccessful()) {
+                events = listBase.getData();
+                User user = new Gson().fromJson(this.user, User.class);
+
+                Iterator<Event> it = events.iterator();
+                while (it.hasNext()) {
+                    Event current = it.next();
+
+                    boolean aux = false;
+                    Iterator<Favorite> itF = favorites.iterator();
+                    while (itF.hasNext()) {
+                        Favorite currentF = itF.next();
+                        if (currentF.getFavorite() == 1 && currentF.getUid().equals(user.getUid()) && currentF.getEid().equals(current.getUid())) {
+                            aux = true;
+                        }
+                    }
+                    if (!aux) {
+                        it.remove();
+                    }
                 }
+
+                eventAdapter.updateEvents(events);
+                Log.e("getFavorites", new Gson().toJson(events));
+            } else {
+                Toast.makeText(context, ErrorMapper.getError(context, listBase.getErrorCode()),
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }

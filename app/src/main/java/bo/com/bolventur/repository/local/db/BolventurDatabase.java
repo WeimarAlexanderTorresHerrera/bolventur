@@ -8,10 +8,12 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
 import bo.com.bolventur.model.Event;
+import bo.com.bolventur.model.Favorite;
 import bo.com.bolventur.repository.local.dao.EventDao;
+import bo.com.bolventur.repository.local.dao.FavoriteDao;
 import bo.com.bolventur.utils.MapConverterTicket;
 
-@Database(entities = {Event.class}, version = 1, exportSchema = false)
+@Database(entities = {Event.class, Favorite.class}, version = 1, exportSchema = false)
 @TypeConverters(MapConverterTicket.class)
 public abstract class BolventurDatabase extends RoomDatabase {
 
@@ -30,4 +32,5 @@ public abstract class BolventurDatabase extends RoomDatabase {
 
     public abstract EventDao eventDao();
 
+    public abstract FavoriteDao favoriteDao();
 }
