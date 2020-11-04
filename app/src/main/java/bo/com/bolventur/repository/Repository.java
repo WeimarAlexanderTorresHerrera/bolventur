@@ -9,6 +9,7 @@ import java.util.List;
 
 import bo.com.bolventur.model.Base;
 import bo.com.bolventur.model.Event;
+import bo.com.bolventur.model.Favorite;
 import bo.com.bolventur.model.users.User;
 import bo.com.bolventur.repository.api.ApiRepository;
 import bo.com.bolventur.repository.local.LocalRepository;
@@ -92,5 +93,53 @@ public class Repository implements RepositoryImpl {
     @Override
     public LiveData<Base<User>> register(String email, String password, String name, String confirmPsswd) {
         return null;
+    }
+
+    @Override
+    public LiveData<Base<List<Favorite>>> getFavorites() {
+        MutableLiveData<Base<List<Favorite>>> result = new MutableLiveData<>();
+
+        // local
+        //localRepository.getEventsTab1().observeForever(events -> result.postValue(new Base<>(events)));
+
+
+        // API
+        ApiRepository.getInstance().getFavorites().observeForever(favorites -> {
+            if (favorites.isSuccessful()) {
+                result.postValue(favorites);
+
+                //localRepository.update(events.getData());
+            }
+        });
+
+        return result;
+    }
+
+    @Override
+    public LiveData<Base<Favorite>> updateFavorite(Favorite favorite) {
+        MutableLiveData<Base<Favorite>> result = new MutableLiveData<>();
+
+        // API
+        ApiRepository.getInstance().updateFavorite(favorite).observeForever(favoriteBase -> {
+            if (favoriteBase.isSuccessful()) {
+                result.postValue(favoriteBase);
+            }
+        });
+
+        return result;
+    }
+
+    @Override
+    public LiveData<Base<Favorite>> createFavorite(Favorite favorite) {
+        MutableLiveData<Base<Favorite>> result = new MutableLiveData<>();
+
+        // API
+        ApiRepository.getInstance().createFavorite(favorite).observeForever(favoriteBase -> {
+            if (favoriteBase.isSuccessful()) {
+                result.postValue(favoriteBase);
+            }
+        });
+
+        return result;
     }
 }
