@@ -50,5 +50,6 @@
     <string name="descriptionHintText">Description</string>
     <string name="btnPhoto">Pick an Image</string>
     <string name="post_image">Pick image</string>
+    <string name="placeTextView">Place</string>
 
 </resources>

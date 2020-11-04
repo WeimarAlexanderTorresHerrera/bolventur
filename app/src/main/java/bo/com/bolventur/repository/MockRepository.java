@@ -81,10 +81,6 @@ public class MockRepository implements RepositoryImpl {
         return results;
     }
 
-    @Override
-    public LiveData<Base<List<Event>>> getEventsTab3(String category) {
-        return null;
-    }
 
     @Override
     public LiveData<Base<List<Event>>> getEventsTab4(String category) {

@@ -65,8 +65,10 @@ public class HostMenuActivity extends AppCompatActivity {
     }
 
     public void profile(View view) {
+        finish();
+        /* Esto ya no lo utilizaremos
         Intent intent = new Intent(context, HostEventActivity.class);
         intent.putExtra(Constants.KEY_EVENT_UID_LOGIN, uidHost.getUid());
-        startActivity(intent);
+        startActivity(intent);*/
     }
 }

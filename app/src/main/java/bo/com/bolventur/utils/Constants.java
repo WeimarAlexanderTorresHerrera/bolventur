@@ -33,5 +33,9 @@ public class Constants {
 
     public static final int ERROR_UPLOAD_IMAGE = 2006;
 
+    public static final  String EVENT_CREATE = "Evento Creado";
+    public static final String TICKET_PRICE = "price";
+    public static final String TICKET_PLACE = "places";
+
     public static final String DIRECTORY_IMAGE = "bolventur_image";
 }

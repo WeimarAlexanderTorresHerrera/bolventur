@@ -37,7 +37,7 @@
         android:layout_marginTop="@dimen/space_lg"
         android:background="@drawable/style_button"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:text="Profile"
+        android:text="Back"
         android:onClick="profile"/>
 
 </LinearLayout>

@@ -22,9 +22,6 @@ public interface EventDao {
     @Query("SELECT * FROM event_table WHERE category=1 ORDER BY title ASC")
     LiveData<List<Event>> getTab2();
 
-    @Query("SELECT * FROM event_table WHERE category=2 ORDER BY title ASC")
-    LiveData<List<Event>> getTab3();
-
     @Query("SELECT * FROM event_table ORDER BY title ASC")
     LiveData<List<Event>> getTab4();
 

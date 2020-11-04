@@ -19,7 +19,7 @@ public interface RepositoryImpl {
 
     LiveData<Base<List<Event>>> getEventsTab2(String category);
 
-    LiveData<Base<List<Event>>> getEventsTab3(String category);
+
 
     LiveData<Base<List<Event>>> getEventsTab4(String category);
 

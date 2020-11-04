@@ -57,16 +57,6 @@ public class Repository implements RepositoryImpl {
         return result;
     }
 
-    @Override
-    public LiveData<Base<List<Event>>> getEventsTab3(String category) {
-        MutableLiveData<Base<List<Event>>> result = new MutableLiveData<>();
-
-        // local
-
-        localRepository.getEventsTab3().observeForever(events -> result.postValue(new Base<>(events)));
-
-        return result;
-    }
 
     @Override
     public LiveData<Base<List<Event>>> getEventsTab4(String category) {
