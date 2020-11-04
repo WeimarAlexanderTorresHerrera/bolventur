@@ -10,6 +10,7 @@ import java.util.List;
 
 import bo.com.bolventur.model.Base;
 import bo.com.bolventur.model.Event;
+import bo.com.bolventur.model.Favorite;
 import bo.com.bolventur.model.users.User;
 import bo.com.bolventur.repository.api.ApiRepository;
 import bo.com.bolventur.repository.firebase.FirebaseRepository;
@@ -34,7 +35,6 @@ public class Repository implements RepositoryImpl {
         // local
         localRepository.getEventsTab1().observeForever(events -> result.postValue(new Base<>(events)));
 
-
         // API
         ApiRepository.getInstance().getEvents().observeForever(events -> {
             if (events.isSuccessful()) {
@@ -53,7 +53,6 @@ public class Repository implements RepositoryImpl {
 
         // local
         localRepository.getEventsTab2().observeForever(events -> result.postValue(new Base<>(events)));
-
 
         return result;
     }
@@ -81,10 +80,9 @@ public class Repository implements RepositoryImpl {
             if (events.isSuccessful()) {
                 result.postValue(events);
 
-                localRepository.update(events.getData());
+                //5localRepository.update(events.getData());
             }
         });
-
 
         return result;
     }
@@ -109,5 +107,54 @@ public class Repository implements RepositoryImpl {
     @Override
     public LiveData<Base<List<Event>>> observeMusicalEvent() {
         return FirebaseRepository.getInstance().observeMusicalEvent();
+    }
+
+    @Override
+    public LiveData<Base<List<Favorite>>> getFavorites(boolean loadLocal) {
+        MutableLiveData<Base<List<Favorite>>> result = new MutableLiveData<>();
+
+        if (loadLocal) {
+            // local
+            localRepository.getFavorites().observeForever(favorites -> result.postValue(new Base<>(favorites)));
+        }
+
+        // API
+        ApiRepository.getInstance().getFavorites().observeForever(favorites -> {
+            if (favorites.isSuccessful()) {
+                result.postValue(favorites);
+
+                localRepository.updateFavorites(favorites.getData());
+            }
+        });
+
+        return result;
+    }
+
+    @Override
+    public LiveData<Base<Favorite>> updateFavorite(Favorite favorite) {
+        MutableLiveData<Base<Favorite>> result = new MutableLiveData<>();
+
+        // API
+        ApiRepository.getInstance().updateFavorite(favorite).observeForever(favoriteBase -> {
+            if (favoriteBase.isSuccessful()) {
+                result.postValue(favoriteBase);
+            }
+        });
+
+        return result;
+    }
+
+    @Override
+    public LiveData<Base<Favorite>> createFavorite(Favorite favorite) {
+        MutableLiveData<Base<Favorite>> result = new MutableLiveData<>();
+
+        // API
+        ApiRepository.getInstance().createFavorite(favorite).observeForever(favoriteBase -> {
+            if (favoriteBase.isSuccessful()) {
+                result.postValue(favoriteBase);
+            }
+        });
+
+        return result;
     }
 }

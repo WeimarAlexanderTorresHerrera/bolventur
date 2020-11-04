@@ -23,10 +23,9 @@ public class Constants {
     public static final int ERROR_NO_CONNECTION = 1001;
 
     //Api
-    public static final String BASE_URL = "https://firebasestorage.googleapis.com/v0/b/bolvertur.appspot.com/o/";
-    public static final String RESOURCE_EVENTS ="EventsCultural.json";
-    public static final String QUERY_PARAM_ALT ="media";
-    public static final String RESOURCE_EVENTS2 ="EventsFav.json";
+    public static final String BASE_URL = "https://bolventur.herokuapp.com/api/";
+    public static final String RESOURCE_EVENTS = "event";
+    public static final String RESOURCE_FAVORITES = "favorite";
 
     //Firebase
     public static final String FIREBASE_PATH_EVENT = "/events";
@@ -35,5 +34,4 @@ public class Constants {
     public static final int ERROR_UPLOAD_IMAGE = 2006;
 
     public static final String DIRECTORY_IMAGE = "bolventur_image";
-
 }

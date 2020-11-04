@@ -15,6 +15,7 @@ import java.util.List;
 
 import bo.com.bolventur.model.Base;
 import bo.com.bolventur.model.Event;
+import bo.com.bolventur.model.Favorite;
 import bo.com.bolventur.model.users.User;
 import bo.com.bolventur.utils.Constants;
 import bo.com.bolventur.utils.Validations;
@@ -120,6 +121,11 @@ public class MockRepository implements RepositoryImpl {
     public LiveData<Base<String>> addEventToHost(String uidHost, Event event , Uri image) {
         return null;
     }
+  
+      @Override
+    public LiveData<Base<List<Favorite>>> getFavorites(boolean loadLocal) {
+        return null;
+    }
 
     @Override
     public LiveData<Base<List<Event>>> observeHostEvent(String uidHost) {
@@ -127,7 +133,18 @@ public class MockRepository implements RepositoryImpl {
     }
 
     @Override
+    public LiveData<Base<Favorite>> updateFavorite(Favorite favorite) {
+        return null;
+    }
+
+  
+    @Override
     public LiveData<Base<List<Event>>> observeMusicalEvent() {
+        return null;
+    }
+
+    @Override
+    public LiveData<Base<Favorite>> createFavorite(Favorite favorite) {
         return null;
     }
 }

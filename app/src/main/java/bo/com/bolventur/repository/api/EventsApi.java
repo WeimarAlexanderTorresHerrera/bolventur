@@ -16,24 +16,8 @@ import retrofit2.http.Query;
 
 public interface EventsApi {
     @GET(Constants.RESOURCE_EVENTS)
-    Call<List<Event>> getEvents(@Query("alt") String alt);
+    Call<List<Event>> getEvents();
 
-    @GET(Constants.RESOURCE_EVENTS2)
-    Call<List<Event>> getEventsFav(@Query("alt") String alt);
-
-    //Esto no se utiliza
-    @GET(Constants.RESOURCE_EVENTS + "/{id}")
-    Call<Event> getOnEvent(@Path("id") int id);
-
-    @POST(Constants.RESOURCE_EVENTS)
-    Call<Event> createEvent(@Body Event event);
-
-    @PUT(Constants.RESOURCE_EVENTS)
-    Call<Event> create(@Body Event event);
-
-    @PATCH(Constants.RESOURCE_EVENTS + "/{id}")
-    Call<Event> update(@Path("id") int id,@Body Event event);
-
-    @DELETE(Constants.RESOURCE_EVENTS + "/{id}")
-    Call delete(@Path("id") int id);
+    @GET(Constants.RESOURCE_EVENTS)
+    Call<List<Event>> getEventsFav();
 }
